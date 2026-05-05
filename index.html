@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hironmoy Roy Rudra - CV</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <style>
+        /* --- Previous CSS styles remain here --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: #1f2937;
+            background-color: #f3f4f6;
+        }
+
+        .container {
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3b82f6;
+            color: #111827;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link i {
+            color: #3b82f6;
+        }
+
+        .contact-link:hover {
+            color: #1d4ed8;
+        }
+
+        .contact-link:hover i {
+            color: #1d4ed8;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .text-justify {
+            text-align: justify;
+            color: #374151;
+        }
+
+        .experience-item,
+        .project-item,
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .role-title,
+        .degree-title,
+        .award-title,
+        .cert-title,
+        .skill-category h3,
+        .ref-name {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .company-name,
+        .university-name,
+        .issuer-name,
+        .affiliation {
+            font-style: italic;
+            color: #4b5563;
+        }
+
+        .date-location {
+            text-align: right;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.875rem;
+            min-width: 120px;
+        }
+
+        ul {
+            list-style-type: disc;
+            list-style-position: outside;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+            color: #374151;
+        }
+
+        li {
+            margin-bottom: 0.375rem;
+        }
+
+        ul ul {
+            list-style-type: circle;
+            margin-top: 0.25rem;
+            padding-left: 1.25rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background-color: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 0.5rem;
+            color: #3b82f6;
+            font-size: 1rem;
+        }
+
+        .skill-category p {
+            font-size: 0.875rem;
+            color: #4b5563;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .floating-button {
+            position: fixed;
+            background-color: #3b82f6;
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            border: none;
+            cursor: pointer;
+        }
+
+        .floating-button:hover {
+            background-color: #2563eb;
+            transform: scale(1.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+        }
+
+        .floating-button::after {
+            content: attr(aria-label);
+            position: absolute;
+            background-color: #1f2937;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .floating-button:hover::after {
+            opacity: 1;
+        }
+
+        .download-floating-trigger {
+            /* Renamed class for the trigger button */
+            bottom: 2rem;
+            right: 2rem;
+        }
+
+        .download-floating-trigger:hover::after {
+            top: -2.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .home-floating {
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .home-floating:hover::after {
+            bottom: -2.8rem;
+            top: auto;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .floating-button i {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #2563eb;
+        }
+
+        .skill-category a {
+            word-break: break-all;
+        }
+
+        /* --- Styles for Modal --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black */
+            z-index: 1040;
+            /* Below modal, above content */
+            display: none;
+            /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            /* 8px */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 1050;
+            /* Above overlay */
+            display: none;
+            /* Hidden by default */
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            min-width: 300px;
+            /* Minimum width */
+            max-width: 90%;
+            /* Maximum width */
+        }
+
+        .modal.show,
+        .modal-overlay.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .modal.show {
+            transform: translate(-50%, -50%) scale(1);
+            /* Ensure correct scale on show */
+        }
+
+        .modal:not(.show) {
+            transform: translate(-50%, -50%) scale(0.9);
+            /* Slight scale down when hidden */
+        }
+
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            /* Space below header */
+            border-bottom: 1px solid #e5e7eb;
+            /* Separator line */
+            padding-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            /* 20px */
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .modal-close-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            /* Larger close icon */
+            line-height: 1;
+            cursor: pointer;
+            color: #6b7280;
+            padding: 0.25rem;
+            /* Padding for easier clicking */
+        }
+
+        .modal-close-button:hover {
+            color: #1f2937;
+        }
+
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            /* Space between buttons */
+        }
+
+        .modal-button {
+            display: block;
+            /* Make anchor tags block */
+            padding: 0.75rem 1.5rem;
+            /* Button padding */
+            background-color: #3b82f6;
+            /* Primary blue */
+            color: white;
+            text-align: center;
+            border-radius: 0.375rem;
+            /* Rounded corners */
+            text-decoration: none;
+            /* Remove underline */
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .modal-button:hover {
+            background-color: #2563eb;
+            /* Darker blue */
+            text-decoration: none;
+            /* Ensure no underline on hover */
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.375rem;
+            }
+
+            .container {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .header-flex {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .date-location {
+                text-align: left;
+                margin-top: 0.5rem;
+                width: 100%;
+            }
+
+            .floating-button {
+                padding: 0.75rem;
+                opacity: 0.8;
+            }
+
+            .floating-button i {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+
+            .download-floating-trigger {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .home-floating {
+                top: 1rem;
+                left: 1rem;
+            }
+
+            .floating-button:hover::after {
+                opacity: 0;
+            }
+
+            .modal {
+                width: 90%;
+                padding: 1.5rem;
+            }
+
+            /* Adjust modal padding */
+            .modal-title {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Hironmoy Roy Rudra</h1>
+            <p class="subtitle">Undergraduate Student | AI/ML | Robotics | NLP</p>
+            <div class="contact-links">
+                <span class="contact-link"> <i data-lucide="map-pin"></i> Dhaka, Bangladesh </span>
+                <a href="mailto:hironmoy5458@gmail.com" class="contact-link"> <i data-lucide="mail"></i>
+                    hironmoy5458@gmail.com </a>
+                <a href="tel:+880-1611582033" class="contact-link"> <i data-lucide="phone"></i> +880-1611582033 </a>
+                <a href="https://hironmoy.com" target="_blank" rel="noopener noreferrer" class="contact-link"> <i
+                        data-lucide="globe"></i> hironmoy.com </a>
+                <a href="https://linkedin.com/in/hironmoy-roy-rudra" target="_blank" rel="noopener noreferrer"
+                    class="contact-link"> <i data-lucide="linkedin"></i> hironmoyroyrudra </a>
+                <a href="https://github.com/Rudra-roy" target="_blank" rel="noopener noreferrer" class="contact-link"> <i
+                        data-lucide="github"></i> Rudra-roy </a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Summary</h2>
+            <p class="text-justify">
+                Driven Undergraduate Student Researcher specializing in autonomous systems and machine learning. Proven track record of architecting robust autonomy stacks, developing high-fidelity digital twins in Unity and Unreal, and designing complex robotics pipelines for international Mars rover competitions. Currently researching parameter optimization strategies for LLMs. Highly proficient in Python, C++, ROS2, and core AI frameworks, blending rigorous academic research with hands-on robotic systems engineering.
+            </p>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">BRAC University</h3>
+                        <p class="university-name">BS in Computer Science, Dhaka, Bangladesh</p>
+                    </div>
+                    <p class="date-location">SEP 2022 – Present</p>
+                </div>
+                <ul>
+                    <li>CGPA: 3.65/4.0</li>
+                    <li>Research: Robotics, Autonomous System, High fidelity Simulations, IOT</li>
+                    <li>Honors: VC's List for Academic Excellence (4 Semesters), Dean's List for Academic Excellence (3
+                        Semester)</li>
+                </ul>
+            </div>
+            <div class="education-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">National College of Education</h3>
+                        <p class="university-name">Higher Secondary Certificate, Science, Narsingidi, Bangladesh</p>
+                    </div>
+                    <p class="date-location">2019 – 2021</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section>
+            <h2>Publications</h2>
+            <div class="experience-item">
+                <h3 class="role-title">Autonomous Navigation in Crowded Spaces Using Multi-Sensory Data Fusion</h3>
+                <p class="company-name">Conference: 2025 IEEE International Conference on Robotics & Automation (ICRA)
+                    [<strong>A* Conference</strong>]</p>
+                <p class="company-name">Status: Presented in Atlanta, USA, May 2025</p>
+                <p class="company-name">DOI: <a href="https://doi.org/10.1109/icra55743.2025.11127865" target="_blank"
+                        rel="noopener">10.1109/icra55743.2025.11127865</a></p>
+                <p class="company-name">Keywords: Autonomous Navigation, Social HRI, Path Planning, Obstacle Avoidance,
+                    Trajectory Prediction, Pose Estimation, Sensor Fusion</p>
+            </div>
+        </section> -->
+
+        <section>
+            <h2>Research Experience</h2>
+            <!-- <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Research Assistant (Robotics)</h3>
+                        <p class="company-name">BRAC University · Full-time</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Sep 2025 – Present</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Mentor undergraduate thesis students in Robotics, Perception, and AI, guiding complete research
+                        cycles from conceptualization to defense while ensuring theoretical and practical implementation
+                        proficiency.</li>
+                    <li>Lead research and development of AI-driven autonomy and perception systems for unstructured
+                        environments lacking conventional infrastructure, emphasizing robust ML/computer vision models,
+                        simulation-to-real validation, and field-ready evaluation protocols.</li>
+                    <li>Collaborate with faculty and laboratory teams on prototype development through systematic ML
+                        pipeline optimization, conducting benchmarking studies and ablation analyses while preparing
+                        results for academic publication and field trials.</li>
+                    <li>Provide technical advisory services to BRACU Mongol Tori, leveraging leadership experience and
+                        research expertise to guide strategic decisions, facilitate knowledge transfer, and maintain
+                        competitive excellence in international robotics competitions.</li>
+                </ul>
+            </div> -->
+            <!-- <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Research Assistant (Samsung R&D Institute Bangladesh)</h3>
+                        <p class="company-name">BRAC University · Part-time</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Mar 2026 – Present</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Implementing and benchmarking mobile object tracking algorithms, designed evaluation pipelines,
+                        and contributed to tracking data annotation for dynamic scene analysis.</li>
+                    <li>Curating raw video datasets, designed annotation pipelines, and developed scripts to
+                        auto-generate ground truth for training and evaluation.</li>
+                    <li>Implementing scene graph generation models and generated scene graphs from video frames to
+                        support object/region-aware dynamic FPS allocation decisions.</li>
+                </ul>
+            </div> -->
+            <!-- <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Research Assistant (BRAC Skills Development Programme)</h3>
+                        <p class="company-name">BRAC University · Part-time</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Sep 2025 – Feb 2026</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed an AI-powered job recommendation system using RAG, LLMs, and vector search to match
+                        candidate profiles with job market demands through skill gap analysis.</li>
+                    <li>Built a CV parsing micro-service supporting PDF and image-based resumes via OCR, extracting
+                        structured candidate data with validation and fault-tolerant API handling.</li>
+                    <li>Engineered an automated job scraping pipeline across multiple job portals with fuzzy IT filtering
+                        and dual-LLM categorization into a standardized taxonomy.</li>
+                    <li>Contributed to a workforce analytics dashboard API aggregating demand metrics, salary benchmarks,
+                        and skill-gap intelligence across Bangladesh's IT sectors.</li>
+                </ul>
+            </div> -->
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">BRACU Mongol Tori (University Rover Team)</h3>
+                        <p class="company-name">Self-employed / University Project Team</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Nov 2023 – Present</p>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>Co-Advisor</strong> (<em>Nov 2025 – Present</em>) <ul>
+                            <li>Direct high-level technical strategies and oversee the competitive development roadmap
+                                for BRACU Mongol Tori (ERC team), guiding the multidisciplinary engineering team through rigorous
+                                preparation for European rover challenge competition.</li>
+                            <li>Collaborate hands-on with team members to advance applied robotics research, driving the
+                                implementation of complex autonomous navigation pipelines, robust computer vision models,
+                                and advanced ROS architectures.</li>
+                            <li>Facilitate comprehensive knowledge transfer and mentor undergraduate engineers in
+                                advanced system design, ensuring sustainable proficiency in simulation-to-real
+                                validation and intelligent systems development.</li>
+                            <li>Elevate the team's academic and engineering rigor by instituting strict research
+                                protocols, guiding members to parallel their competition deliverables with the
+                                high-impact standards required for top-tier, peer-reviewed robotics publications.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Sub-Team Lead</strong> (<em>Sep 2024 – Present</em>) <ul>
+                            <li>Led the Autonomous Sub-Team in developing and deploying robust autonomy stacks, SLAM pipelines, and path-planning algorithms for the Mars rover.</li>
+                            <li>Set technical milestones, managed software development sprints, and mentored junior members in ROS2, Python, and intelligent systems.</li>
+                            <li>Spearheaded the autonomous navigation missions for the team during international competition, University Rover Challenge (USA)</li>
+                            <li>Managed the autonomous systems pipeline and monitored real-time telemetry during high-pressure competition tasks.</li>
+                        </ul>
+                    </li>
+                    <!-- <li><strong>Electronic Controls Engineer</strong> (<em>Apr 2022 – Aug 2022</em>) <ul>
+                            <li>Designed power systems and PCBs using Autodesk Eagle.</li>
+                            <li>Implemented an RTK-GPS based mapping system in the rover's WebUI via NTRIP connection.
+                            </li>
+                            <li>Optimized rover control systems using C++, Python, and ROS.</li>
+                        </ul>
+                    </li> -->
+                    <li><strong>Control Systems Engineer</strong> (<em>Feb 2024 – Aug 2024</em>) <ul>
+                            <li>Designed and built ROS2-based communication and control system architecture from scratch.
+                            </li>
+                            <li>Implemented inverse kinematics using Aruco markers and OpenCV pipeline for a 3 DOF arm.</li>
+                            <li>Worked on efficient camera calibration techniques</li>
+                        </ul>
+                    </li>
+                    <li><strong>Contributor</strong> (<em>Nov 2023 – Feb 2024</em>) <ul>
+                            <li>Researched and learned rover control systems (Arduino, Raspberry Pi).</li>
+                            <li>Studied the feasibility of implementing ROS for the Mars rover system.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Participant & 6th Place Finalist (National Round)</h3>
+                        <p class="company-name">KIBO Robot Programming Challenge (6th Edition)</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>[Aug, 2025] – [Feb, 2026]</p>
+                    </div>
+                </div>
+                <p style="margin-top: 0.5rem;"><i><strong>Project: Computer Vision and Autonomous Sign Detection</strong></i></p>
+                <ul>
+                    <li>Achieved 6th position nationwide by developing a robust computer vision pipeline for the Kibo-RPC competition.</li>
+                    <li>Engineered algorithms for the real-time detection and classification of various types of visual signs and markers.</li>
+                    <li>Optimized image processing models to ensure high accuracy and performance within simulated microgravity environments.</li>
+                    <li>Integrated computer vision modules with the robotic navigation stack to execute autonomous targeting tasks.</li>
+                </ul>
+            </div>
+
+        <section>
+            <h2>Experience</h2>
+            <!-- <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Embedded Systems and Software Engineer</h3>
+                        <p class="company-name">Sa.Ni.Corporate Srl</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Rome, Italy (Remote)</p>
+                        <p>Jul 2024 – Mar 2025</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Developed hardware and software solutions for medical baropodometry devices, focusing on
+                        improving user experience and advancing diagnostic precision.</li>
+                    <li>Designed native Windows program automation tools (Powershell) to streamline processes and
+                        increase efficiency.</li>
+                    <li>Reverse engineered C++ software to reconstruct and optimize a medical visualization application,
+                        improving performance and usability.</li>
+                </ul>
+            </div> -->
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Technical Mentor</h3>
+                        <p class="company-name">First Global Challenge (FGC) Team Bangladesh</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Jan 2025 – Jun 2025</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Mentored the national robotics team over a 6-month period, delivering comprehensive training in programming fundamentals, strategic planning, and logic building.</li>
+                    <li>Guided team members in developing problem-solving strategies and robust software architectures for competition tasks.</li>
+                    <li>Designed and implemented an end-to-end computer vision pipeline for rice leaf disease detection.</li>
+                    <li>Leveraged foundational PyTorch models for the detection pipeline and optimized inference performance using TensorRT for high-speed edge deployment.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">AI Engineer</h3>
+                        <p class="company-name">ROBO hobby</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Oct 2024 – Jan 2025</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Worked on edge computing for Pest control in Agricultural Settings</li>
+                    <li>Built an AI-powered pest detection system using Raspberry Pi and TensorFlow Lite, achieving high accuracy in identifying common crop pests.</li>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Student Instructor</h3>
+                        <p class="company-name">Robotics Club of BRAC University</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Oct 2025 – Nov 2025</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Conducted classes on fundamental and intermediate applications of Robotic Operating System (ROS) and fundamental physics simulations using Gazebo and Webots.</li>
+                    <li>Provided assistance to learners by responding to queries, debugging code, and offering guidance on project development.</li>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <section>
+            <h2>Projects</h2>
+            <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">Hybrid RL-IL Urban Navigation Framework</h3>
+                    <p class="date-location">Sep 2025 - Present</p>
+                </div>
+                <ul>
+                    <li>Developing a hybrid Reinforcement Learning and Imitation Learning (RL-IL) navigation framework within the CARLA simulator to tackle highly unstructured traffic scenarios.</li>
+                    <li>Designing robust navigation and path-planning pipelines that leverage a comprehensive simulated sensor suite to ensure real-time spatial awareness and obstacle avoidance.</li>
+                    <li>Implementing and rigorously tuning Model Predictive Control (MPC) algorithms to generate smooth, kinematically feasible trajectories and optimize vehicle control in dynamic environments.</li>
+                    <li>Curating the Dhaka-Dense Dataset (D3) using the Segment Anything Model (SAM) for pixel-level segmentation of local vehicle classes, featuring contextual LLM-based annotations.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">Unity-Based Digital Twin & Autonomous Traversal Simulation</h3>
+                    <p class="affiliation"> <a href="https://cloud.unity.com/home/organizations/18968359003359/projects/07fa0ea6-409d-4083-8a08-309f480c4971"
+                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
+                                rudra/Rover_sim</a> </p>
+                    <p class="date-location">Dec 2025 - Present</p>
+                </div>
+                <ul>
+                    <li>Developed a high-fidelity digital twin of the "BRACU Mongol-Tori" Mars rover in Unity Game Engine to simulate and validate autonomous navigation pipelines.</li>
+                    <li>Integrated ROS2 with MuJoCo physics engine, URDF joints, and custom mesh collisions to realistically model the rover's rocker-bogie suspension system.</li>
+                    <li>Simulated rough-surface planetary environments to test path-planning algorithms and autonomous traversal capabilities without risking physical hardware.</li>
+                    <li>Replicated complex sensor suites within the simulation to generate synthetic data for testing SLAM and LiDAR-GNSS fusion algorithms.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">EchoMind: VLM Agent Wrapper</h3>
+                        <p class="affiliation"> <a href="https://github.com/Rudra-roy/EchoMind--You-speak-It-thinks"
+                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
+                                Rudra-roy/EchoMind--You-speak-It-thinks</a> </p>
+                    </div>
+                    <p class="date-location">Sep 2025</p>
+                </div>
+                <ul>
+                    <li>Developed "EchoMind," a TypeScript-based Vision-Language Model (VLM) agent wrapper designed to streamline interactions with locally hosted AI models.</li>
+                    <li>Implemented an API-driven architecture to efficiently route user prompts to a local server and dynamically render the model's responses.</li>
+                    <li>Managed asynchronous client-server requests to ensure low-latency communication and a seamless "speak and think" interaction loop.</li>
+                    <li>Built a responsive interface for testing and interacting with VLM capabilities, enhancing the experimentation pipeline for local AI deployments.</li>
+                </ul>
+            </div>
+            <div class="project-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Custom ROS2 Autonomous Robot Framework (my_bot)</h3>
+                        <p class="affiliation"> <a href="https://github.com/Rudra-roy/my_bot"
+                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
+                                Rudra-roy/my_bot</a> </p>
+                    </div>
+                    <p class="date-location">Sep 2024</p>
+                </div>
+                <ul>
+                    <li>Developed a custom autonomous mobile robot workspace using ROS2, featuring comprehensive URDF modeling and kinematics configuration.</li>
+                    <li>Implemented the Nav2 stack to facilitate dynamic path planning, obstacle avoidance, and precise waypoint navigation.</li>
+                    <li>Integrated simulated sensor data streams, including LiDAR and IMU, to enable robust Simultaneous Localization and Mapping (SLAM).</li>
+                    <li>Configured scalable launch files to seamlessly deploy and test the robot's control algorithms within simulation environments.</li>
+                </ul>
+            </div>
+
+
+            <div class="project-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">ROS2 Autonomy Workspace & Unity Integration</h3>
+                        <p class="affiliation"> <a href="https://github.com/bracu-mongoltori/simple_robot_ws"
+                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
+                                bracu-mongoltori/simple_robot_ws</a> </p>
+                    </div>
+                    <p class="date-location">Dec 2025</p>
+                </div>
+                <ul>
+                    <li>Architected the foundational ROS2 workspace (`simple_robot_ws`) serving as the core autonomy backend for the BRACU Mongol-Tori Mars rover.</li>
+                    <li>Successfully integrated the ROS2 control pipeline directly with a high-fidelity Unity digital twin, establishing a seamless software-in-the-loop (SITL) simulation environment.</li>
+                    <li>Developed modular ROS2 nodes for path planning and kinematics that drive the rover's behavior within the simulated rough-terrain environment.</li>
+                    <li>Accelerated the testing phase for autonomous traversal algorithms by validating edge-case scenarios virtually prior to physical hardware deployment.</li>
+                </ul>
+            </div>
+
+            <div class="project-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">3D LiDAR Map-Based Topographical Path Planner</h3>
+                        <p class="affiliation">Custom Navigation Algorithm</p>
+                    </div>
+                    <p class="date-location">Aug 2025</p>
+                </div>
+                <ul>
+                    <li>Engineered a custom path-planning algorithm founded on Artificial Potential Fields to execute safe, autonomous waypoint traversal in complex environments.</li>
+                    <li>Processed and analyzed raw LiDAR point cloud data to dynamically calculate terrain slopes and isolate high-risk danger zones.</li>
+                    <li>Demonstrated superior traversal efficiency and route optimization compared to standard search algorithms (BFS, DFS, Dijkstra, Hill Climbing) and conditional A* by leveraging continuous spatial heuristics.</li>
+                    <li>Designed the system specifically for robust mobile robot navigation, ensuring fluid obstacle avoidance and safe gradient negotiation on rough surfaces.</li>
+                </ul>
+            </div>
+
+            <!-- <div class="project-item">
+                <div class="header-flex">
+                    <h3 class="role-title">Eshon-Sat (1U CubeSat Training Kit)</h3>
+                    <p class="date-location">Mar 2022 - Nov 2022</p>
+                </div>
+                <p class="affiliation">Affiliation: Laboratory of Space System Engineering & Technology, Dhaka,
+                    Bangladesh</p>
+                <ul>
+                    <li>Developed and programmed the On-Board Compute (OBC) module (C/C++) ensuring efficiency and
+                        reliability for a 1U CubeSat Training Kit.</li>
+                    <li>Researched and experimented with various communication protocols and architectures suitable for
+                        CubeSats.</li>
+                    <li>Designed and implemented optimized flash memory firmware to improve storage efficiency and
+                        lifespan.</li>
+                    <li>Conducted rigorous testing and validation of OBC and communication systems.</li>
+                </ul>
+            </div> -->
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming &amp; Databases</h3>
+                    <p>Python (Expert), C/C++, C#, JavaScript, TypeScript, SQL, Bash</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Deep Learning &amp; Computer Vision</h3>
+                    <p>PyTorch (Expert), TensorFlow, TensorRT, Keras, OpenCV, YOLO (v8/v11/world/v26), OCR (Tesseract)</p>
+                </div>
+                <div class="skill-category">
+                    <h3>AI / ML / NLP</h3>
+                    <p>Scikit-learn, RAG Systems, Vector Databases (Pinecone, ChromaDB),
+                        LLMs (GPT, Llama, DeepSeek), Hugging Face Transformers, Reinforcement Learning (DQN, PPO), Optuna Optimization, LoRa</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Robotics</h3>
+                    <p>ROS2, Physics Simulation (Gazebo, Webots, PyBullet), High-fidelity Navigation simulation (CARLA, AirSim, Unity, Unreal) Path Planning, Inverse Kinematics, Control Systems Design,
+                        Sensor Integration</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Embedded Systems</h3>
+                    <p>Arduino, Raspberry Pi, ESP32, STM32</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Science &amp; Analysis</h3>
+                    <p>Pandas, NumPy, Bioinformatics Pipelines, Data Visualization, Feature Engineering, Data
+                        Augmentation</p>
+                </div>
+                <div class="skill-category">
+                    <h3>3D Design, Simulation &amp; Modeling</h3>
+                    <p>3D Design (Fusion 360, OnShape), Blender (Basic)</p>
+                </div>
+                <!-- <div class="skill-category">
+                    <h3>Satellite Systems &amp; Communication</h3>
+                    <p>CubeSat Design, APRS, Satellite Communications</p>
+                </div> -->
+                <div class="skill-category">
+                    <h3>Web &amp; Backend Development</h3>
+                    <p>Flask, FastAPI, React-Native, Tailwind CSS, Laravel, MySQL, MongoDB, Expo-Go</p>
+                </div>
+                <div class="skill-category">
+                    <h3>MLOps &amp; Cloud</h3>
+                    <p>Docker, Git/GitHub, CI/CD, Weights &amp; Biases, Model
+                        Quantization</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Software Engineering &amp; Tools</h3>
+                    <p>Reverse Engineering, GUI Development (PyQt, Tkinter), Linux (Ubuntu, Raspbian),
+                        Jupyter Notebooks</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Professional Skills</h3>
+                    <p>Team Leadership, Project Management, Agile Methodologies, Critical Thinking, Technical
+                        Documentation</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Language Skills</h2>
+            <ul>
+                <li><strong class="role-title">English:</strong> Professional proficiency</li>
+                <li><strong class="role-title">Bangla:</strong> Native or bilingual proficiency</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Certificates & Training</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="cert-title">Computer Science Fundamentals</h3>
+                    <p class="issuer-name">Issued by: Harvard University, CS50 (2023)</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="cert-title">100 days of code with Python</h3>
+                    <p class="issuer-name">Issued by: Udemy (2023)</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="cert-title">DSA with Python3</h3>
+                    <p class="issuer-name">Issued by: Udemy (2023)</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="cert-title">Ethical Hacking with zSecurity</h3>
+                    <p class="issuer-name">Issued by: Udemy (2023)</p>
+                </div>
+
+
+                <div class="skill-category">
+                    <h3 class="cert-title">Deep Learning Specialization</h3>
+                    <p class="issuer-name">Issued by: Deeplearning.AI, Coursera (2024)</p>
+                </div>
+                <!-- <div class="skill-category">
+                    <h3 class="cert-title">Electronics System and PCB Design</h3>
+                    <p class="issuer-name">Issued by: IEEE Aerospace & Electronic Systems Society (Sep 2022)</p>
+                </div> -->
+                <div class="skill-category">
+                    <h3 class="cert-title">Kibo RPC 6th Edition Participant (2025)</h3>
+                    <p class="issuer-name">Issued by: JAXA (Dec 2025)</p>
+                </div>
+                <!-- <div class="skill-category">
+                    <h3 class="cert-title">Python 3 Programming Specialization</h3>
+                    <p class="issuer-name">Issued by: University of Michigan, Coursera (2020)</p>
+                </div> -->
+                <div class="skill-category">
+                    <h3 class="cert-title">Duke of Edinburge Leadership Program, Bronze Award (2023)</h3>
+                    <p class="issuer-name">Issued by: The Duke of Edinburgh’s International Award Foundation’s office</p>
+                </div>
+                <!-- <div class="skill-category">
+                    <h3 class="cert-title">How Sensors are Making Better Urban Environment</h3>
+                    <p class="issuer-name">Issued by: IEEE Innovation at Work, PDH (2021)</p>
+                </div> -->
+            </div>
+        </section>
+
+        <section>
+            <h2>Honors & Awards</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="award-title">8th Place, University Rover Challenge 2025</h3>
+                    <p class="issuer-name">Issued by: The Mars Society, Utah, USA (Jun 2025)</p>
+                </div>
+                <div class="skill-category">
+                    <h3 class="award-title">21th Place, University Rover Challenge 2024</h3>
+                    <p class="issuer-name">Issued by: The Mars Society, Utah, USA (Jun 2024)</p>
+                </div>
+                <div class="skill-category">
+                    <h3 class="award-title">National Round Participant, KIBO Robot Programming Challenge 2025</h3>
+                    <p class="issuer-name">Issued by: Japan Aerospace Exploration Agency (JAXA), Tokyo, Japan (Feb 2026)
+                    </p>
+                </div>
+                <!-- <div class="skill-category">
+                    <h3 class="award-title">9th Place, International Rover Challenge 2023</h3>
+                    <p class="issuer-name">Issued by: Space Robotics Society, Bengaluru, India (Jan 2023)</p>
+                </div>
+                <div class="skill-category">
+                    <h3 class="award-title">21st Place, International Rover Design Challenge 2022</h3>
+                    <p class="issuer-name">Issued by: Space Robotics Society (Dec 2022)</p>
+                </div>
+                <div class="skill-category">
+                    <h3 class="award-title">Crew Award, KIBO Robot Programming Challenge 2022</h3>
+                    <p class="issuer-name">Issued by: Japan Aerospace Exploration Agency (JAXA) (Oct 2022)</p>
+                </div>
+                <div class="skill-category">
+                    <h3 class="award-title">Champion, AUST Rover Challenge 2022</h3>
+                    <p class="issuer-name">Issued by: AUST Robotics Club, Dhaka, Bangladesh (Aug 2022)</p>
+                </div> -->
+            </div>
+        </section>
+
+        <!-- <section>
+            <h2>Volunteering</h2>
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Volunteer</h3>
+                        <p class="company-name">2025 IEEE International Conference on Robotics and Automation (ICRA)</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Atlanta, USA</p>
+                        <p>May 2025</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Managed attendee check-ins, badge distribution, and orientation for hundreds of participants on
+                        Day 1.</li>
+                    <li>Promoted to Registration Team Manager on Day 2, training and supervising new volunteers during
+                        peak hours.</li>
+                    <li>Supported exhibitors and guided authors and attendees during the Exhibit Hall and Poster
+                        Sessions.</li>
+                    <li>Built professional connections by actively engaging with international participants and
+                        organizers.</li>
+                    <li>Gained experience in large-scale event logistics, cross-cultural communication, and team
+                        coordination.</li>
+                    <li>Balanced volunteer duties with academic contributions as a conference presenter.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="header-flex">
+                    <div>
+                        <h3 class="role-title">Volunteer</h3>
+                        <p class="company-name">BRAC Hope Festival (BRAC University)</p>
+                    </div>
+                    <div class="date-location">
+                        <p>Dhaka, Bangladesh</p>
+                        <p>Feb 2023</p>
+                    </div>
+                </div>
+                <ul>
+                    <li>Organized and managed activities, ensuring smooth event operations.</li>
+                    <li>Showcased robotics projects (BRACU Mongol Tori), providing demonstrations to attendees.</li>
+                    <li>Represented the university, fostering interest in STEM and robotics.</li>
+                    <li>Collaborated with team members to create a vibrant educational experience.</li>
+                </ul>
+            </div>
+        </section> -->
+
+        <section>
+            <h2>References</h2>
+            <div class="skills-grid">
+                <!-- <div class="skill-category">
+                    <h3 class="ref-name">Dr. Md. Golam Rabiul Alam, PhD</h3>
+                    <p class="issuer-name">Professor, Dept. of Computer Science and Engineering<br>BRAC University,
+                        Dhaka, Bangladesh</p>
+                    <p>Email: <a href="mailto:rabiul.alam@bracu.ac.bd">rabiul.alam@bracu.ac.bd</a></p>
+                    <p>Phone: <a href="tel:+8801797347635">+8801797347635</a></p>
+                    <p>Tel: +8809617445063</p>
+                </div> -->
+                <div class="skill-category">
+                    <h3 class="ref-name">Dr. Md. Khalilur Rhaman, PhD</h3>
+                    <p class="issuer-name">Professor, Department of Computer Science and Engineering<br>BRAC University,
+                        Dhaka, Bangladesh</p>
+                    <p>Email: <a href="mailto:khalilur@bracu.ac.bd">khalilur@bracu.ac.bd</a></p>
+                    <p>Phone: <a href="tel:+8801752042223">+8801752042223</a></p>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="ref-name">Dr. Farig Yousuf Sadeque, PhD</h3>
+                    <p class="issuer-name">Assistant Professor, Department of Computer Science and Engineering<br>BRAC University,
+                        Dhaka, Bangladesh</p>
+                    <p>Email: <a href="mailto:farig.sadeque@bracu.ac.bd">farig.sadeque@bracu.ac.bd</a></p>
+                    <!-- <p>Phone: <a href="tel:+8801752042223">+8801752042223</a></p> -->
+                </div>
+                <!-- <div class="skill-category">
+                    <h3 class="ref-name">Roberto Fratello</h3>
+                    <p class="issuer-name">Tech Lead<br>Medical Support/Sa.Ni.Corporate Srl</p>
+                    <p>Email: <a href="mailto:roberto.fratello2@gmail.com">roberto.fratello2@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+393405317726">+393405317726</a></p>
+                </div>
+                <div class="skill-category">
+                    <h3 class="ref-name">Salman Ibne Eunus</h3>
+                    <p class="issuer-name">Chief Educational Instructor, The AI Educator<br>(Formerly Research Assistant
+                        at Genofax)</p>
+                    <p>Email: <a href="mailto:salmaneunus27@gmail.com">salmaneunus27@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+8801746208374">+8801746208374</a></p>
+                </div> -->
+            </div>
+        </section>
+
+        <footer>
+            <p>Last updated: May 2026</p>
+        </footer>
+    </div>
+
+    <a href="index.html" class="floating-button home-floating" aria-label="Home">
+        <i data-lucide="home"></i>
+    </a>
+
+    <button type="button" id="downloadCvBtn" class="floating-button download-floating-trigger"
+        aria-label="Download CV">
+        <i data-lucide="download"></i>
+    </button>
+
+    <div id="cvModalOverlay" class="modal-overlay"></div>
+    <div id="cvModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-header">
+            <h3 id="modalTitle" class="modal-title">Select CV Version</h3>
+            <button type="button" class="modal-close-button" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <a href="CV of Mollah Md Saif (AI).pdf" class="modal-button" target="_blank"
+                download="CV of Mollah Md Saif (AI).pdf">
+                AI Software Engineer CV
+            </a>
+            <a href="CV of Mollah Md Saif (Robotics).pdf" class="modal-button" target="_blank"
+                download="CV of Mollah Md Saif (Robotics).pdf">
+                Robotics Engineer CV
+            </a>
+            <a href="CV of Mollah Md Saif (Academic).pdf" class="modal-button" target="_blank"
+                download="CV of Mollah Md Saif (Academic).pdf">
+                Academic CV
+            </a>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.474.0/dist/umd/lucide.min.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Modal JavaScript
+        const downloadBtn = document.getElementById('downloadCvBtn');
+        const modal = document.getElementById('cvModal');
+        const overlay = document.getElementById('cvModalOverlay');
+        const closeModalBtn = modal.querySelector('.modal-close-button');
+
+        function openModal() {
+            modal.classList.add('show');
+            overlay.classList.add('show');
+            // Optional: Focus the first button in the modal for accessibility
+            modal.querySelector('.modal-button')?.focus();
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            overlay.classList.remove('show');
+            // Optional: Return focus to the button that opened the modal
+            downloadBtn?.focus();
+        }
+
+        if (downloadBtn && modal && overlay && closeModalBtn) {
+            downloadBtn.addEventListener('click', openModal);
+            closeModalBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+
+            // Close modal on Escape key press
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && modal.classList.contains('show')) {
+                    closeModal();
+                }
+            });
+        } else {
+            console.error("Modal elements not found!");
+        }
+
+    </script>
+</body>
+
+</html>
