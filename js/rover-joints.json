@@ -1,0 +1,231 @@
+{
+ "base_link": {
+  "parent": null,
+  "pivot": [
+   0.0,
+   0.0,
+   -0.0
+  ],
+  "axis": null,
+  "joint_type": "root",
+  "fusion_joint": null
+ },
+ "rocker_left": {
+  "parent": "base_link",
+  "pivot": [
+   0.075482,
+   0.433583,
+   -0.308586
+  ],
+  "axis": [
+   0.0,
+   -0.0,
+   -1.0
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "Revolute 37"
+ },
+ "rocker_right": {
+  "parent": "base_link",
+  "pivot": [
+   0.075482,
+   0.433583,
+   0.311414
+  ],
+  "axis": [
+   -0.0,
+   0.0,
+   1.0
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "Revolute 38"
+ },
+ "diff_bar": {
+  "parent": "base_link",
+  "pivot": [
+   -0.3075,
+   0.572439,
+   0.001414
+  ],
+  "axis": [
+   -1.0,
+   0.0,
+   -0.0
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "diff_bar"
+ },
+ "rod_left": {
+  "parent": "rocker_left",
+  "pivot": [
+   -0.389332,
+   0.009553,
+   -0.033
+  ],
+  "axis": null,
+  "joint_type": "ball",
+  "fusion_joint": "wheel_bar_to_rod_con_1",
+  "end_parent": "diff_bar",
+  "end": [
+   -0.00635,
+   -0.02935,
+   -0.343
+  ],
+  "length_m": 0.099953,
+  "fusion_end_joint": "rod_to_diff_bar_1"
+ },
+ "rod_right": {
+  "parent": "rocker_right",
+  "pivot": [
+   -0.389332,
+   0.009553,
+   0.033
+  ],
+  "axis": null,
+  "joint_type": "ball",
+  "fusion_joint": "wheel_bar_to_rod_con_2",
+  "end_parent": "diff_bar",
+  "end": [
+   -0.00635,
+   -0.02935,
+   0.343
+  ],
+  "length_m": 0.099953,
+  "fusion_end_joint": "rod_to_diff_bar_2"
+ },
+ "fork_lf": {
+  "parent": "rocker_left",
+  "pivot": [
+   0.485662,
+   -0.073447,
+   -0.033
+  ],
+  "axis": [
+   -0.0,
+   -1.0,
+   0.0
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "omni_left_front"
+ },
+ "fork_rf": {
+  "parent": "rocker_right",
+  "pivot": [
+   0.485662,
+   -0.073447,
+   0.033
+  ],
+  "axis": [
+   0.0,
+   1.0,
+   0.0
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "omni_right_front"
+ },
+ "fork_lb": {
+  "parent": "rocker_left",
+  "pivot": [
+   -0.493441,
+   -0.073447,
+   -0.033
+  ],
+  "axis": [
+   0.0,
+   -1.0,
+   0.0
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "omni_left_back"
+ },
+ "fork_rb": {
+  "parent": "rocker_right",
+  "pivot": [
+   -0.493441,
+   -0.073447,
+   0.033
+  ],
+  "axis": [
+   -0.0,
+   1.0,
+   0.0
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "omni_right_back"
+ },
+ "wheel_lf": {
+  "parent": "fork_lf",
+  "pivot": [
+   -0.000192,
+   -0.208,
+   -0.071193
+  ],
+  "axis": [
+   -0.00269,
+   -0.0,
+   -0.999996
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "wheel_left_front"
+ },
+ "wheel_rf": {
+  "parent": "fork_rf",
+  "pivot": [
+   -0.000192,
+   -0.208,
+   0.071193
+  ],
+  "axis": [
+   0.00269,
+   0.0,
+   -0.999996
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "Wheel_right_front"
+ },
+ "wheel_lb": {
+  "parent": "fork_lb",
+  "pivot": [
+   0.000704,
+   -0.208,
+   -0.071189
+  ],
+  "axis": [
+   0.009893,
+   -0.0,
+   -0.999951
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "wheel_left_back"
+ },
+ "wheel_rb": {
+  "parent": "fork_rb",
+  "pivot": [
+   0.000704,
+   -0.208,
+   0.071189
+  ],
+  "axis": [
+   -0.009893,
+   0.0,
+   -0.999951
+  ],
+  "joint_type": "revolute",
+  "fusion_joint": "wheel_right_back"
+ },
+ "_notes": {
+  "units": "metres; glTF Y-up, X forward (ZED camera side), +Z is the rover right side",
+  "conversion": "Fusion/STL frame is Z-up, X forward, Y left, mm (joints JSON cm). cad (x, y, z) -> glTF (x, z, -y); mm/100 cm -> m. Same mapping Blender applies on export (+Y up).",
+  "frames": "pivot = node translation in its parent node frame. All node frames are world-aligned in the rest pose (identity rotation), so axis is the same vector in the node, parent and root frames. Rotate a node with quaternion.setFromAxisAngle(axis, angle) about its own origin.",
+  "axes": "axis vectors are Fusion's as exported (unit, Y-up converted); the left/right pairs carry mirrored signs, so +angle on rocker_left and +angle on rocker_right is the differential (one up, one down) motion.",
+  "rods": "ball joints have no axis: rod_* origin is the lower ball on the rocker; end is the upper ball expressed in the diff_bar frame. Aim the rod (+Y along its length at rest) from pivot to the diff_bar end point each frame.",
+  "rest": {
+   "ground_y": 0.0,
+   "wheel_radius_m": 0.15,
+   "wheelbase_m": 0.9782,
+   "track_m": 0.8284
+  },
+  "source": "rocker-loop-sim/data/parts/*.stl + data/fusion_joints.json (Fusion design \"drubotara v57\"); diff_bar_connection_* ride on diff_bar because fusion_joints.json fixes them to Differential_bar, not to the chassis (the rods' upper balls sit on them).",
+  "generator": "site/tools/make_rover_glb.py"
+ }
+}

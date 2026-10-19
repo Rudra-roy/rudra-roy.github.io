@@ -1,0 +1,620 @@
+/* Self-hosted typefaces (variable woff2, latin subset, from fonts/FONTS.txt) */
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("fonts/EBGaramond-400.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/EBGaramond-400i.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("fonts/SourceSans3-400.woff2") format("woff2");
+}
+
+/* Academic ledger: structure from rules and alignment, nothing else. */
+
+:root {
+  --bg: #f5f6f1;
+  --fg: #1b1d19;
+  --muted: #5e645b;
+  --accent: #8a2b2b;
+  --rule: #c7ccc1;
+  --plate: #ffffff;
+  --serif: "EB Garamond", Garamond, "Times New Roman", serif;
+  --sans: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1e201e;
+    --fg: #e3e1d8;
+    --muted: #9ea297;
+    --accent: #d9968b;
+    --rule: #3d413c;
+    --plate: #171917;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1e201e;
+  --fg: #e3e1d8;
+  --muted: #9ea297;
+  --accent: #d9968b;
+  --rule: #3d413c;
+  --plate: #171917;
+  color-scheme: dark;
+}
+
+/* Base */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1.5rem; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1.0625rem/1.55 var(--sans);
+  font-feature-settings: "kern", "liga";
+  counter-reset: fig;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  overflow-wrap: anywhere;
+}
+
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+img,
+video { max-width: 100%; height: auto; }
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0; }
+
+p { margin: 0; }
+
+.page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Bypass link: the first focusable thing on the page, visible only on focus */
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 1;
+  padding: 0.4rem 0.75rem;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--fg);
+  text-decoration: none;
+}
+
+.skip:focus { top: 0.5rem; }
+
+/* Masthead: name on the left, contact on the right, closed by a thick-thin rule */
+
+.mast { padding-top: 2.5rem; }
+
+.mast__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem 3rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 3px solid var(--fg);
+}
+
+.mast__name {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.mast__name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mast__line {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  max-width: 34rem;
+}
+
+.mast__tag {
+  margin-top: 0.75rem;
+  max-width: 36rem;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.mast__cv { font-weight: 600; }
+
+.card__links-label { color: var(--muted); }
+
+.mast__contact {
+  font-style: normal;
+  text-align: right;
+  line-height: 1.7;
+}
+
+.mast__contact a { display: block; }
+
+.mast__nav {
+  margin-top: 3px;
+  border-top: 1px solid var(--fg);
+  padding: 0.6rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.mast__nav a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.mast__nav a:hover,
+.mast__nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+}
+
+/* Sections: a ledger grid. Key column carries the heading and the red margin rule. */
+
+.section { border-top: 1px solid var(--rule); }
+
+.section:first-of-type { border-top: 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+}
+
+.key {
+  border-right: 1px solid var(--accent);
+  padding: 2.25rem 1.5rem 2.25rem 0;
+}
+
+.key h1,
+.key h2 {
+  position: sticky;
+  top: 1.5rem;
+  font-size: 1.625rem;
+  line-height: 1.2;
+}
+
+.entries {
+  min-width: 0;
+  padding: 2.25rem 0 2.25rem 2.5rem;
+}
+
+.entries > :not(.card),
+.card > :not(.media):not(.figs) { max-width: 44rem; }
+
+.note {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+}
+
+.note--lead { margin: 0 0 1.25rem; }
+
+/* Entry rows */
+
+.card {
+  padding: 1.375rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.card:first-child,
+.note--lead + .card { border-top: 0; padding-top: 0; }
+.card:last-child { padding-bottom: 0; }
+
+.card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1.25rem;
+}
+
+.card__head :is(h2, h3) {
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.25;
+  flex: 1 1 18rem;
+}
+
+.card__meta {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  margin-top: 0.25rem;
+}
+
+/* Stack: the tools an entry is built with, set like the meta line above a publication */
+
+.stack {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.stack li:not(:last-child)::after { content: ","; }
+
+.card p + p,
+.card__meta + p,
+.stack + p { margin-top: 0.625rem; }
+
+.card__links {
+  margin-top: 0.625rem;
+  font-size: 0.9375rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+/* Status badges: quiet, hairline, sentence case; the glyph repeats the state for a colour-blind reader */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  padding: 0 0.5em;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  color: var(--muted);
+  white-space: nowrap;
+  vertical-align: 0.1em;
+}
+
+.badge::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  flex: none;
+}
+
+.badge--review::before { background: currentColor; }
+.badge--prep::before { background: transparent; }
+.badge--thesis::before { border-radius: 0; background: currentColor; }
+.badge--public::before { border-radius: 0; background: transparent; }
+
+/* Ledger rows for experience, honours and downloads */
+
+.ledger {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ledger li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.ledger li:first-child { border-top: 0; }
+
+.ledger .when {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.ledger h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.ledger h3:first-child { margin-top: 0; }
+
+/* Figures: numbered plates framed by a hairline, caption in the margin tone */
+
+.media {
+  margin: 1rem 0 0;
+  min-width: 0;
+  counter-increment: fig;
+}
+
+.media img,
+.media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: var(--plate);
+}
+
+.media figcaption {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  margin-top: 0.4rem;
+}
+
+.media figcaption::before {
+  content: "Fig. " counter(fig) ".\00a0\00a0";
+  color: var(--fg);
+}
+
+.media .poster { display: none; }
+
+/* Opening plate: the five-world strip whole at its own aspect; below 64rem it becomes a tape that scrolls */
+
+.media--hero { margin-top: 1.5rem; }
+
+.media--hero .scroller {
+  display: block;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.media--hero picture { display: block; }
+
+@media (max-width: 63.9rem) {
+  .media--hero:not(.media--hero-wide) img {
+    width: auto;
+    max-width: none;
+    height: 104px;
+  }
+}
+
+/* Wide opening plate (a single render): full width, capped height, never a tape */
+
+.media--hero-wide img {
+  width: 100%;
+  max-width: 100%;
+  height: clamp(11rem, 30vw, 24rem);
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.figs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 1rem 1.25rem;
+  align-items: start;
+}
+
+.figs .media { margin-top: 1rem; }
+
+/* Columns in the plates' own aspect ratios, so a pair sits at one height */
+
+.figs--pair { grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); max-width: 36rem; }
+
+@media (min-width: 64rem) {
+  .figs--hifi { grid-template-columns: 1.78fr 2.57fr; }
+  .figs--rocker { grid-template-columns: 1.78fr 2.18fr; }
+  .figs--rocker2 { grid-template-columns: 1.87fr 1.78fr; }
+}
+
+.strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.375rem;
+}
+
+.strip img {
+  aspect-ratio: 629 / 309;
+  object-fit: cover;
+}
+
+/* Footer closes the ledger with the same thick-thin rule */
+
+.foot {
+  margin-top: 1rem;
+  padding: 0 0 3rem;
+}
+
+.foot__rule {
+  border-top: 3px solid var(--fg);
+  margin-bottom: 3px;
+}
+
+.foot__row {
+  border-top: 1px solid var(--fg);
+  padding-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.foot__row span,
+.foot__row nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+/* Phone: one column, 16px gutters */
+
+@media (max-width: 47.9rem) {
+  .page { padding: 0 1rem; }
+
+  .mast { padding-top: 1.75rem; }
+
+  .mast__contact { text-align: left; }
+
+  .mast__nav { gap: 0.25rem 1rem; }
+
+  .grid { grid-template-columns: minmax(0, 1fr); }
+
+  .key {
+    border-right: 0;
+    padding: 1.5rem 0 0;
+  }
+
+  .key h1,
+  .key h2 {
+    position: static;
+    border-left: 2px solid var(--accent);
+    padding-left: 0.75rem;
+  }
+
+  .entries { padding: 0.875rem 0 1.5rem; }
+
+  .media--hero { margin-top: 1.25rem; }
+
+  /* The five worlds become a tape: one arena at a time, the next one peeking in */
+  .strip {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    padding-bottom: 0.375rem;
+  }
+
+  .strip img {
+    flex: 0 0 76%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+
+  .ledger li { display: block; }
+
+  .ledger .when {
+    display: block;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .ledger--cv li { display: flex; }
+  .ledger--cv .when { display: inline; }
+}
+
+/* Motion: nothing here animates; autoplaying video yields to its poster. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .media video[autoplay] { display: none; }
+  .media .poster { display: block; }
+}
+
+@media print {
+  .skip, .mast__nav, video { display: none; }
+  .media .poster { display: block; }
+  a { color: inherit; }
+}
+
+
+/* 3-D plate: canvas and poster stacked; the scene adds .is-live to the figure when it renders */
+
+.media--3d .stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--rule);
+  background: var(--plate);
+  overflow: hidden;
+}
+
+.media--3d canvas,
+.media--3d .stage .poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0;
+  border: 0;
+  object-fit: cover;
+}
+
+.media--3d canvas { cursor: grab; touch-action: pan-y; }
+.media--3d canvas:active { cursor: grabbing; }
+.media--3d canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.media--3d .stage .poster { display: block; }
+.media--3d.is-live .stage .poster { display: none; }
+
+@media (max-width: 47.9rem) {
+  .media--3d .stage { aspect-ratio: 16 / 10; }
+}
+
+/* Inline animated diagrams */
+
+.media--diagram { max-width: 36rem; }
+
+.media--diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: var(--plate);
+}
+
+/* Scroll reveal, CSS only: a card fades in as it enters the viewport (scroll-driven animation).
+   Browsers without animation-timeline, and visitors who prefer reduced motion, see every card at once. */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-reveal] {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}

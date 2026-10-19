@@ -1,1242 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hironmoy Roy Rudra - CV</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
-            --ease-soft: cubic-bezier(0.2, 0.6, 0.2, 1);
-            --shadow-hover: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
-            --color-bg: #f7f4ef;
-            --color-surface: #ffffff;
-            --color-card: #f3f1ec;
-            --color-card-hover: #efeae3;
-            --color-text: #2f3a33;
-            --color-text-strong: #1c241f;
-            --color-muted: #5f6b62;
-            --color-border: #e1ded7;
-            --color-primary: #0f766e;
-            --color-primary-dark: #115e59;
-            --color-primary-soft: #0d9488;
-            --color-tooltip: #1f2622;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            line-height: 1.5;
-            color: var(--color-text);
-            background-color: var(--color-bg);
-        }
-
-        .container {
-            max-width: 64rem;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: var(--color-surface);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-            animation: fade-in 0.6s var(--ease-standard);
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        h1 {
-            font-size: 2.25rem;
-            font-weight: bold;
-            margin-bottom: 0.75rem;
-            color: var(--color-text-strong);
-            animation: fade-up 0.6s var(--ease-standard);
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--color-primary);
-            color: var(--color-text-strong);
-        }
-
-        .subtitle {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--color-muted);
-            animation: fade-up 0.6s var(--ease-standard);
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            font-size: 0.875rem;
-            color: var(--color-muted);
-            animation: fade-up 0.6s var(--ease-standard);
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.2s var(--ease-soft);
-        }
-
-        .contact-link i {
-            color: var(--color-primary);
-        }
-
-        .contact-link:hover {
-            color: var(--color-primary-dark);
-        }
-
-        .contact-link:hover i {
-            color: var(--color-primary-dark);
-        }
-
-        section {
-            margin-bottom: 2rem;
-            animation: fade-up 0.6s var(--ease-standard);
-            animation-fill-mode: both;
-        }
-
-        .text-justify {
-            text-align: justify;
-            color: var(--color-text);
-        }
-
-        .experience-item,
-        .project-item,
-        .education-item {
-            margin-bottom: 1.5rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.5rem;
-            transition: transform 0.2s var(--ease-soft), box-shadow 0.2s var(--ease-soft), background-color 0.2s var(--ease-soft);
-        }
-
-        .experience-item:hover,
-        .project-item:hover,
-        .education-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-            background-color: var(--color-card-hover);
-        }
-
-        .header-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .role-title,
-        .degree-title,
-        .award-title,
-        .cert-title,
-        .skill-category h3,
-        .ref-name {
-            font-weight: bold;
-            color: var(--color-text-strong);
-        }
-
-        .company-name,
-        .university-name,
-        .issuer-name,
-        .affiliation {
-            font-style: italic;
-            color: var(--color-muted);
-        }
-
-        .date-location {
-            text-align: right;
-            font-style: italic;
-            color: var(--color-muted);
-            font-size: 0.875rem;
-            min-width: 120px;
-        }
-
-        ul {
-            list-style-type: disc;
-            list-style-position: outside;
-            padding-left: 1.5rem;
-            margin-top: 0.5rem;
-            color: var(--color-text);
-        }
-
-        li {
-            margin-bottom: 0.375rem;
-        }
-
-        ul ul {
-            list-style-type: circle;
-            margin-top: 0.25rem;
-            padding-left: 1.25rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background-color: var(--color-card);
-            padding: 1rem;
-            border-radius: 0.375rem;
-            border: 1px solid var(--color-border);
-            transition: transform 0.2s var(--ease-soft), box-shadow 0.2s var(--ease-soft);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .skill-category h3 {
-            margin-bottom: 0.5rem;
-            color: var(--color-primary);
-            font-size: 1rem;
-        }
-
-        .skill-category p {
-            font-size: 0.875rem;
-            color: var(--color-muted);
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.875rem;
-            color: var(--color-muted);
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .floating-button {
-            position: fixed;
-            background-color: var(--color-primary);
-            color: white;
-            padding: 1rem;
-            border-radius: 50%;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s var(--ease-soft);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.85;
-            border: none;
-            cursor: pointer;
-        }
-
-        .floating-button:hover {
-            background-color: var(--color-primary-soft);
-            transform: scale(1.1);
-            box-shadow: var(--shadow-hover);
-            opacity: 1;
-        }
-
-        .floating-button::after {
-            content: attr(aria-label);
-            position: absolute;
-            background-color: var(--color-tooltip);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            white-space: nowrap;
-            opacity: 0;
-            transition: opacity 0.2s var(--ease-soft);
-            pointer-events: none;
-        }
-
-        .download-floating-trigger {
-            bottom: 2rem;
-            right: 2rem;
-        }
-
-        .download-floating-trigger:hover::after {
-            top: -2.8rem;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .home-floating {
-            top: 2rem;
-            left: 2rem;
-        }
-
-        .home-floating:hover::after {
-            bottom: -2.8rem;
-            top: auto;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .floating-button i {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-
-        a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: color 0.2s var(--ease-soft), text-decoration-color 0.2s var(--ease-soft);
-        }
-
-        a:hover {
-            text-decoration: underline;
-            color: var(--color-primary-dark);
-        }
-
-        .skill-category a {
-            word-break: break-all;
-        }
-
-        /* --- Styles for Modal --- */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1040;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s var(--ease-soft);
-        }
-
-        .modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.96);
-            background-color: var(--color-surface);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            z-index: 1050;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s var(--ease-soft), transform 0.3s var(--ease-soft);
-            min-width: 300px;
-            max-width: 90%;
-        }
-
-        .modal.show,
-        .modal-overlay.show {
-            display: block;
-            opacity: 1;
-        }
-
-        .modal.show {
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--color-border);
-            padding-bottom: 1rem;
-        }
-
-        .modal-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-text-strong);
-        }
-
-        .modal-close-button {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            line-height: 1;
-            cursor: pointer;
-            color: var(--color-muted);
-            padding: 0.25rem;
-        }
-
-        .modal-close-button:hover {
-            color: var(--color-text-strong);
-        }
-
-        .modal-body {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .modal-button {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            background-color: var(--color-primary);
-            color: white;
-            text-align: center;
-            border-radius: 0.375rem;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.2s var(--ease-soft), transform 0.2s var(--ease-soft);
-            border: 1px solid transparent;
-        }
-
-        .modal-button:hover {
-            background-color: var(--color-primary-soft);
-            text-decoration: none;
-            color: white;
-            transform: translateY(-1px);
-        }
-
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fade-up {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.375rem;
-            }
-
-            .container {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 1rem;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
-            }
-
-            .header-flex {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .date-location {
-                text-align: left;
-                margin-top: 0.5rem;
-                width: 100%;
-            }
-
-            .floating-button {
-                padding: 0.75rem;
-                opacity: 0.85;
-            }
-
-            .floating-button i {
-                width: 1.25rem;
-                height: 1.25rem;
-            }
-
-            .download-floating-trigger {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .home-floating {
-                top: 1rem;
-                left: 1rem;
-            }
-
-            .floating-button:hover::after {
-                opacity: 0;
-            }
-
-            .modal {
-                width: 90%;
-                padding: 1.5rem;
-            }
-
-            .modal-title {
-                font-size: 1.125rem;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hironmoy Roy Rudra</title>
+<meta name="description" content="Hironmoy Roy Rudra: uncertainty-aware rover navigation, event-based vision for multi-robot teams, and datasets for dense South Asian traffic. PhD applicant, Fall 2027.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hironmoy Roy Rudra">
+<meta property="og:description" content="Hironmoy Roy Rudra: uncertainty-aware rover navigation, event-based vision for multi-robot teams, and datasets for dense South Asian traffic. PhD applicant, Fall 2027.">
+<meta property="og:image" content="https://hironmoy.com/og.png">
+<meta property="og:url" content="https://hironmoy.com/">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f6f1"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1e201e">
+<link rel="canonical" href="https://hironmoy.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/SourceSans3-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/EBGaramond-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div class="container">
-        <header>
-            <h1>Hironmoy Roy Rudra</h1>
-            <p class="subtitle">Undergraduate Student | AI/ML | Robotics | NLP</p>
-            <div class="contact-links">
-                <span class="contact-link"> <i data-lucide="map-pin"></i> Dhaka, Bangladesh </span>
-                <a href="mailto:hironmoy5458@gmail.com" class="contact-link"> <i data-lucide="mail"></i>
-                    hironmoy5458@gmail.com </a>
-                <a href="tel:+880-1611582033" class="contact-link"> <i data-lucide="phone"></i> +880-1611582033 </a>
-                <a href="https://rudra-roy.github.io" target="_blank" rel="noopener noreferrer" class="contact-link"> <i
-                        data-lucide="globe"></i> rudra-roy.github.io </a>
-                <a href="https://linkedin.com/in/hironmoy-roy-rudra" target="_blank" rel="noopener noreferrer"
-                    class="contact-link"> <i data-lucide="linkedin"></i> hironmoyroyrudra </a>
-                <a href="https://github.com/Rudra-roy" target="_blank" rel="noopener noreferrer" class="contact-link"> <i
-                        data-lucide="github"></i> Rudra-roy </a>
-            </div>
-        </header>
-
-        <section>
-            <h2>Summary</h2>
-            <p class="text-justify">
-                Driven Undergraduate Student Researcher specializing in autonomous systems and machine learning. Proven track record of architecting robust autonomy stacks, developing high-fidelity digital twins in Unity and Unreal, and designing complex robotics pipelines for international Mars rover competitions. Currently researching parameter optimization strategies for LLMs. Highly proficient in Python, C++, ROS2, and core AI frameworks, blending rigorous academic research with hands-on robotic systems engineering.
-            </p>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <div class="education-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">BRAC University</h3>
-                        <p class="university-name">BS in Computer Science, Dhaka, Bangladesh</p>
-                    </div>
-                    <p class="date-location">SEP 2022 – Present</p>
-                </div>
-                <ul>
-                    <li>CGPA: 3.65/4.0</li>
-                    <li>Research: Robotics, Autonomous System, High fidelity Simulations, IOT</li>
-                    <li>Honors: VC's List for Academic Excellence (4 Semesters), Dean's List for Academic Excellence (3
-                        Semester)</li>
-                </ul>
-            </div>
-            <div class="education-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">National College of Education</h3>
-                        <p class="university-name">Higher Secondary Certificate, Science, Narsingidi, Bangladesh</p>
-                    </div>
-                    <p class="date-location">2019 – 2021</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- <section>
-            <h2>Publications</h2>
-            <div class="experience-item">
-                <h3 class="role-title">Autonomous Navigation in Crowded Spaces Using Multi-Sensory Data Fusion</h3>
-                <p class="company-name">Conference: 2025 IEEE International Conference on Robotics & Automation (ICRA)
-                    [<strong>A* Conference</strong>]</p>
-                <p class="company-name">Status: Presented in Atlanta, USA, May 2025</p>
-                <p class="company-name">DOI: <a href="https://doi.org/10.1109/icra55743.2025.11127865" target="_blank"
-                        rel="noopener">10.1109/icra55743.2025.11127865</a></p>
-                <p class="company-name">Keywords: Autonomous Navigation, Social HRI, Path Planning, Obstacle Avoidance,
-                    Trajectory Prediction, Pose Estimation, Sensor Fusion</p>
-            </div>
-        </section> -->
-
-        <section>
-            <h2>Research Experience</h2>
-            <!-- <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Research Assistant (Robotics)</h3>
-                        <p class="company-name">BRAC University · Full-time</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Sep 2025 – Present</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Mentor undergraduate thesis students in Robotics, Perception, and AI, guiding complete research
-                        cycles from conceptualization to defense while ensuring theoretical and practical implementation
-                        proficiency.</li>
-                    <li>Lead research and development of AI-driven autonomy and perception systems for unstructured
-                        environments lacking conventional infrastructure, emphasizing robust ML/computer vision models,
-                        simulation-to-real validation, and field-ready evaluation protocols.</li>
-                    <li>Collaborate with faculty and laboratory teams on prototype development through systematic ML
-                        pipeline optimization, conducting benchmarking studies and ablation analyses while preparing
-                        results for academic publication and field trials.</li>
-                    <li>Provide technical advisory services to BRACU Mongol Tori, leveraging leadership experience and
-                        research expertise to guide strategic decisions, facilitate knowledge transfer, and maintain
-                        competitive excellence in international robotics competitions.</li>
-                </ul>
-            </div> -->
-            <!-- <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Research Assistant (Samsung R&D Institute Bangladesh)</h3>
-                        <p class="company-name">BRAC University · Part-time</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Mar 2026 – Present</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Implementing and benchmarking mobile object tracking algorithms, designed evaluation pipelines,
-                        and contributed to tracking data annotation for dynamic scene analysis.</li>
-                    <li>Curating raw video datasets, designed annotation pipelines, and developed scripts to
-                        auto-generate ground truth for training and evaluation.</li>
-                    <li>Implementing scene graph generation models and generated scene graphs from video frames to
-                        support object/region-aware dynamic FPS allocation decisions.</li>
-                </ul>
-            </div> -->
-            <!-- <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Research Assistant (BRAC Skills Development Programme)</h3>
-                        <p class="company-name">BRAC University · Part-time</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Sep 2025 – Feb 2026</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Developed an AI-powered job recommendation system using RAG, LLMs, and vector search to match
-                        candidate profiles with job market demands through skill gap analysis.</li>
-                    <li>Built a CV parsing micro-service supporting PDF and image-based resumes via OCR, extracting
-                        structured candidate data with validation and fault-tolerant API handling.</li>
-                    <li>Engineered an automated job scraping pipeline across multiple job portals with fuzzy IT filtering
-                        and dual-LLM categorization into a standardized taxonomy.</li>
-                    <li>Contributed tohttps://rudra-roy.github.io/ a workforce analytics dashboard API aggregating demand metrics, salary benchmarks,
-                        and skill-gap intelligence across Bangladesh's IT sectors.</li>
-                </ul>
-            </div> -->
-            <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">BRACU Mongol Tori (University Rover Team)</h3>
-                        <p class="company-name">Self-employed / University Project Team</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Nov 2025 – Present</p>
-                    </div>
-                </div>
-                <ul>
-                    <li><strong>Co-Advisor</strong> (<em>Nov 2025 – Present</em>) <ul>
-                            <li>Direct high-level technical strategies and oversee the competitive development roadmap
-                                for BRACU Mongol Tori (ERC team), guiding the multidisciplinary engineering team through rigorous
-                                preparation for European rover challenge competition.</li>
-                            <li>Collaborate hands-on with team members to advance applied robotics research, driving the
-                                implementation of complex autonomous navigation pipelines, robust computer vision models,
-                                and advanced ROS architectures.</li>
-                            <li>Facilitate comprehensive knowledge transfer and mentor undergraduate engineers in
-                                advanced system design, ensuring sustainable proficiency in simulation-to-real
-                                validation and intelligent systems development.</li>
-                            <li>Elevate the team's academic and engineering rigor by instituting strict research
-                                protocols, guiding members to parallel their competition deliverables with the
-                                high-impact standards required for top-tier, peer-reviewed robotics publications.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Sub-Team Lead</strong> (<em>Sep 2024 – Present</em>) <ul>
-                            <li>Led the Autonomous Sub-Team in developing and deploying robust autonomy stacks, SLAM pipelines, and path-planning algorithms for the Mars rover.</li>
-                            <li>Set technical milestones, managed software development sprints, and mentored junior members in ROS2, Python, and intelligent systems.</li>
-                            <li>Spearheaded the autonomous navigation missions for the team during international competition, University Rover Challenge (USA)</li>
-                            <li>Managed the autonomous systems pipeline and monitored real-time telemetry during high-pressure competition tasks.</li>
-                        </ul>
-                    </li>
-                    <!-- <li><strong>Electronic Controls Engineer</strong> (<em>Apr 2022 – Aug 2022</em>) <ul>
-                            <li>Designed power systems and PCBs using Autodesk Eagle.</li>
-                            <li>Implemented an RTK-GPS based mapping system in the rover's WebUI via NTRIP connection.
-                            </li>
-                            <li>Optimized rover control systems using C++, Python, and ROS.</li>
-                        </ul>
-                    </li> -->
-                    <li><strong>Control Systems Engineer</strong> (<em>Feb 2024 – Aug 2024</em>) <ul>
-                            <li>Designed and built ROS2-based communication and control system architecture from scratch.
-                            </li>
-                            <li>Implemented inverse kinematics using Aruco markers and OpenCV pipeline for a 3 DOF arm.</li>
-                            <li>Worked on efficient camera calibration techniques</li>
-                        </ul>
-                    </li>
-                    <li><strong>Contributor</strong> (<em>Nov 2023 – Feb 2024</em>) <ul>
-                            <li>Researched and learned rover control systems (Arduino, Raspberry Pi).</li>
-                            <li>Studied the feasibility of implementing ROS for the Mars rover system.</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Participant & 6th Place Finalist (National Round)</h3>
-                        <p class="company-name">KIBO Robot Programming Challenge (6th Edition)</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Aug, 2025 – Feb, 2026</p>
-                    </div>
-                </div>
-                <p style="margin-top: 0.5rem;"><i><strong>Project: Computer Vision and Autonomous Sign Detection</strong></i></p>
-                <ul>
-                    <li>Achieved 6th position nationwide by developing a robust computer vision pipeline for the Kibo-RPC competition.</li>
-                    <li>Engineered algorithms for the real-time detection and classification of various types of visual signs and markers.</li>
-                    <li>Optimized image processing models to ensure high accuracy and performance within simulated microgravity environments.</li>
-                    <li>Integrated computer vision modules with the robotic navigation stack to execute autonomous targeting tasks.</li>
-                </ul>
-            </div>
-
-        <section>
-            <h2>Experience</h2>
-            <!-- <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Embedded Systems and Software Engineer</h3>
-                        <p class="company-name">Sa.Ni.Corporate Srl</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Rome, Italy (Remote)</p>
-                        <p>Jul 2024 – Mar 2025</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Developed hardware and software solutions for medical baropodometry devices, focusing on
-                        improving user experience and advancing diagnostic precision.</li>
-                    <li>Designed native Windows program automation tools (Powershell) to streamline processes and
-                        increase efficiency.</li>
-                    <li>Reverse engineered C++ software to reconstruct and optimize a medical visualization application,
-                        improving performance and usability.</li>
-                </ul>
-            </div> -->
-            <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Technical Mentor</h3>
-                        <p class="company-name">First Global Challenge (FGC) Team Bangladesh</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Jan 2025 – Jun 2025</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Mentored the national robotics team over a 6-month period, delivering comprehensive training in programming fundamentals, strategic planning, and logic building.</li>
-                    <li>Guided team members in developing problem-solving strategies and robust software architectures for competition tasks.</li>
-                    <li>Designed and implemented an end-to-end computer vision pipeline for rice leaf disease detection.</li>
-                    <li>Leveraged foundational PyTorch models for the detection pipeline and optimized inference performance using TensorRT for high-speed edge deployment.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">AI Engineer</h3>
-                        <p class="company-name">ROBO hobby</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Oct 2024 – Jan 2025</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Worked on edge computing for Pest control in Agricultural Settings</li>
-                    <li>Built an AI-powered pest detection system using Raspberry Pi and TensorFlow Lite, achieving high accuracy in identifying common crop pests.</li>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Student Instructor</h3>
-                        <p class="company-name">Robotics Club of BRAC University</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Oct 2025 – Nov 2025</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Conducted classes on fundamental and intermediate applications of Robotic Operating System (ROS) and fundamental physics simulations using Gazebo and Webots.</li>
-                    <li>Provided assistance to learners by responding to queries, debugging code, and offering guidance on project development.</li>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-
-
-        <section>
-            <h2>Projects</h2>
-            <div class="project-item">
-                <div class="header-flex">
-                    <h3 class="role-title">Hybrid RL-IL Urban Navigation Framework</h3>
-                    <p class="date-location">Sep 2025 - Present</p>
-                </div>
-                <ul>
-                    <li>Developing a hybrid Reinforcement Learning and Imitation Learning (RL-IL) navigation framework within the CARLA simulator to tackle highly unstructured traffic scenarios.</li>
-                    <li>Designing robust navigation and path-planning pipelines that leverage a comprehensive simulated sensor suite to ensure real-time spatial awareness and obstacle avoidance.</li>
-                    <li>Implementing and rigorously tuning Model Predictive Control (MPC) algorithms to generate smooth, kinematically feasible trajectories and optimize vehicle control in dynamic environments.</li>
-                    <li>Curating the Dhaka-Dense Dataset (D3) using the Segment Anything Model (SAM) for pixel-level segmentation of local vehicle classes, featuring contextual LLM-based annotations.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <div class="header-flex">
-                    <h3 class="role-title">Unity-Based Digital Twin & Autonomous Traversal Simulation</h3>
-                    <p class="affiliation"> <a href="https://cloud.unity.com/home/organizations/18968359003359/projects/07fa0ea6-409d-4083-8a08-309f480c4971"
-                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
-                                rudra/Rover_sim</a> </p>
-                    <p class="date-location">Dec 2025 - Present</p>
-                </div>
-                <ul>
-                    <li>Developed a high-fidelity digital twin of the "BRACU Mongol-Tori" Mars rover in Unity Game Engine to simulate and validate autonomous navigation pipelines.</li>
-                    <li>Integrated ROS2 with MuJoCo physics engine, URDF joints, and custom mesh collisions to realistically model the rover's rocker-bogie suspension system.</li>
-                    <li>Simulated rough-surface planetary environments to test path-planning algorithms and autonomous traversal capabilities without risking physical hardware.</li>
-                    <li>Replicated complex sensor suites within the simulation to generate synthetic data for testing SLAM and LiDAR-GNSS fusion algorithms.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">EchoMind: VLM Agent Wrapper</h3>
-                        <p class="affiliation"> <a href="https://github.com/Rudra-roy/EchoMind--You-speak-It-thinks"
-                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
-                                Rudra-roy/EchoMind--You-speak-It-thinks</a> </p>
-                    </div>
-                    <p class="date-location">Sep 2025</p>
-                </div>
-                <ul>
-                    <li>Developed "EchoMind," a TypeScript-based Vision-Language Model (VLM) agent wrapper designed to streamline interactions with locally hosted AI models.</li>
-                    <li>Implemented an API-driven architecture to efficiently route user prompts to a local server and dynamically render the model's responses.</li>
-                    <li>Managed asynchronous client-server requests to ensure low-latency communication and a seamless "speak and think" interaction loop.</li>
-                    <li>Built a responsive interface for testing and interacting with VLM capabilities, enhancing the experimentation pipeline for local AI deployments.</li>
-                </ul>
-            </div>
-            <div class="project-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Custom ROS2 Autonomous Robot Framework (my_bot)</h3>
-                        <p class="affiliation"> <a href="https://github.com/Rudra-roy/my_bot"
-                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
-                                Rudra-roy/my_bot</a> </p>
-                    </div>
-                    <p class="date-location">Sep 2024</p>
-                </div>
-                <ul>
-                    <li>Developed a custom autonomous mobile robot workspace using ROS2, featuring comprehensive URDF modeling and kinematics configuration.</li>
-                    <li>Implemented the Nav2 stack to facilitate dynamic path planning, obstacle avoidance, and precise waypoint navigation.</li>
-                    <li>Integrated simulated sensor data streams, including LiDAR and IMU, to enable robust Simultaneous Localization and Mapping (SLAM).</li>
-                    <li>Configured scalable launch files to seamlessly deploy and test the robot's control algorithms within simulation environments.</li>
-                </ul>
-            </div>
-
-
-            <div class="project-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">ROS2 Autonomy Workspace & Unity Integration</h3>
-                        <p class="affiliation"> <a href="https://github.com/bracu-mongoltori/simple_robot_ws"
-                                target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i>
-                                bracu-mongoltori/simple_robot_ws</a> </p>
-                    </div>
-                    <p class="date-location">Dec 2025</p>
-                </div>
-                <ul>
-                    <li>Architected the foundational ROS2 workspace (`simple_robot_ws`) serving as the core autonomy backend for the BRACU Mongol-Tori Mars rover.</li>
-                    <li>Successfully integrated the ROS2 control pipeline directly with a high-fidelity Unity digital twin, establishing a seamless software-in-the-loop (SITL) simulation environment.</li>
-                    <li>Developed modular ROS2 nodes for path planning and kinematics that drive the rover's behavior within the simulated rough-terrain environment.</li>
-                    <li>Accelerated the testing phase for autonomous traversal algorithms by validating edge-case scenarios virtually prior to physical hardware deployment.</li>
-                </ul>
-            </div>
-
-            <div class="project-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">3D LiDAR Map-Based Topographical Path Planner</h3>
-                        <p class="affiliation">Custom Navigation Algorithm</p>
-                    </div>
-                    <p class="date-location">Aug 2025</p>
-                </div>
-                <ul>
-                    <li>Engineered a custom path-planning algorithm founded on Artificial Potential Fields to execute safe, autonomous waypoint traversal in complex environments.</li>
-                    <li>Processed and analyzed raw LiDAR point cloud data to dynamically calculate terrain slopes and isolate high-risk danger zones.</li>
-                    <li>Demonstrated superior traversal efficiency and route optimization compared to standard search algorithms (BFS, DFS, Dijkstra, Hill Climbing) and conditional A* by leveraging continuous spatial heuristics.</li>
-                    <li>Designed the system specifically for robust mobile robot navigation, ensuring fluid obstacle avoidance and safe gradient negotiation on rough surfaces.</li>
-                </ul>
-            </div>
-
-            <!-- <div class="project-item">
-                <div class="header-flex">
-                    <h3 class="role-title">Eshon-Sat (1U CubeSat Training Kit)</h3>
-                    <p class="date-location">Mar 2022 - Nov 2022</p>
-                </div>
-                <p class="affiliation">Affiliation: Laboratory of Space System Engineering & Technology, Dhaka,
-                    Bangladesh</p>
-                <ul>
-                    <li>Developed and programmed the On-Board Compute (OBC) module (C/C++) ensuring efficiency and
-                        reliability for a 1U CubeSat Training Kit.</li>
-                    <li>Researched and experimented with various communication protocols and architectures suitable for
-                        CubeSats.</li>
-                    <li>Designed and implemented optimized flash memory firmware to improve storage efficiency and
-                        lifespan.</li>
-                    <li>Conducted rigorous testing and validation of OBC and communication systems.</li>
-                </ul>
-            </div> -->
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming &amp; Databases</h3>
-                    <p>Python (Expert), C/C++, C#, JavaScript, TypeScript, SQL, Bash</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Deep Learning &amp; Computer Vision</h3>
-                    <p>PyTorch (Expert), TensorFlow, TensorRT, Keras, OpenCV, YOLO (v8/v11/world/v26), OCR (Tesseract)</p>
-                </div>
-                <div class="skill-category">
-                    <h3>AI / ML / NLP</h3>
-                    <p>Scikit-learn, RAG Systems, Vector Databases (Pinecone, ChromaDB),
-                        LLMs (GPT, Llama, DeepSeek), Hugging Face Transformers, Reinforcement Learning (DQN, PPO), Optuna Optimization, LoRa</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Robotics</h3>
-                    <p>ROS2, Physics Simulation (Gazebo, Webots, PyBullet), High-fidelity Navigation simulation (CARLA, AirSim, Unity, Unreal) Path Planning, Inverse Kinematics, Control Systems Design,
-                        Sensor Integration</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Embedded Systems</h3>
-                    <p>Arduino, Raspberry Pi, ESP32, STM32</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Data Science &amp; Analysis</h3>
-                    <p>Pandas, NumPy, Bioinformatics Pipelines, Data Visualization, Feature Engineering, Data
-                        Augmentation</p>
-                </div>
-                <div class="skill-category">
-                    <h3>3D Design, Simulation &amp; Modeling</h3>
-                    <p>3D Design (Fusion 360, OnShape), Blender (Basic)</p>
-                </div>
-                <!-- <div class="skill-category">
-                    <h3>Satellite Systems &amp; Communication</h3>
-                    <p>CubeSat Design, APRS, Satellite Communications</p>
-                </div> -->
-                <div class="skill-category">
-                    <h3>Web &amp; Backend Development</h3>
-                    <p>Flask, FastAPI, React-Native, Tailwind CSS, Laravel, MySQL, MongoDB, Expo-Go</p>
-                </div>
-                <div class="skill-category">
-                    <h3>MLOps &amp; Cloud</h3>
-                    <p>Docker, Git/GitHub, CI/CD, Weights &amp; Biases, Model
-                        Quantization</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Software Engineering &amp; Tools</h3>
-                    <p>Reverse Engineering, GUI Development (PyQt, Tkinter), Linux (Ubuntu, Raspbian),
-                        Jupyter Notebooks</p>
-                </div>
-                <div class="skill-category">
-                    <h3>Professional Skills</h3>
-                    <p>Team Leadership, Project Management, Agile Methodologies, Critical Thinking, Technical
-                        Documentation</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Language Skills</h2>
-            <ul>
-                <li><strong class="role-title">English:</strong> Professional proficiency</li>
-                <li><strong class="role-title">Bangla:</strong> Native or bilingual proficiency</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Certificates & Training</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="cert-title">Computer Science Fundamentals</h3>
-                    <p class="issuer-name">Issued by: Harvard University, CS50 (2023)</p>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="cert-title">100 days of code with Python</h3>
-                    <p class="issuer-name">Issued by: Udemy (2023)</p>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="cert-title">DSA with Python3</h3>
-                    <p class="issuer-name">Issued by: Udemy (2023)</p>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="cert-title">Ethical Hacking with zSecurity</h3>
-                    <p class="issuer-name">Issued by: Udemy (2023)</p>
-                </div>
-
-
-                <div class="skill-category">
-                    <h3 class="cert-title">Deep Learning Specialization</h3>
-                    <p class="issuer-name">Issued by: Deeplearning.AI, Coursera (2024)</p>
-                </div>
-                <!-- <div class="skill-category">
-                    <h3 class="cert-title">Electronics System and PCB Design</h3>
-                    <p class="issuer-name">Issued by: IEEE Aerospace & Electronic Systems Society (Sep 2022)</p>
-                </div> -->
-                <div class="skill-category">
-                    <h3 class="cert-title">Kibo RPC 6th Edition Participant (2025)</h3>
-                    <p class="issuer-name">Issued by: JAXA (Dec 2025)</p>
-                </div>
-                <!-- <div class="skill-category">
-                    <h3 class="cert-title">Python 3 Programming Specialization</h3>
-                    <p class="issuer-name">Issued by: University of Michigan, Coursera (2020)</p>
-                </div> -->
-                <div class="skill-category">
-                    <h3 class="cert-title">Duke of Edinburge Leadership Program, Bronze Award (2023)</h3>
-                    <p class="issuer-name">Issued by: The Duke of Edinburgh’s International Award Foundation’s office</p>
-                </div>
-                <!-- <div class="skill-category">
-                    <h3 class="cert-title">How Sensors are Making Better Urban Environment</h3>
-                    <p class="issuer-name">Issued by: IEEE Innovation at Work, PDH (2021)</p>
-                </div> -->
-            </div>
-        </section>
-
-        <section>
-            <h2>Honors & Awards</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="award-title">8th Place, University Rover Challenge 2025</h3>
-                    <p class="issuer-name">Issued by: The Mars Society, Utah, USA (Jun 2025)</p>
-                </div>
-                <div class="skill-category">
-                    <h3 class="award-title">21th Place, University Rover Challenge 2024</h3>
-                    <p class="issuer-name">Issued by: The Mars Society, Utah, USA (Jun 2024)</p>
-                </div>
-                <div class="skill-category">
-                    <h3 class="award-title">National Round Participant, KIBO Robot Programming Challenge 2025</h3>
-                    <p class="issuer-name">Issued by: Japan Aerospace Exploration Agency (JAXA), Tokyo, Japan (Feb 2026)
-                    </p>
-                </div>
-                <!-- <div class="skill-category">
-                    <h3 class="award-title">9th Place, International Rover Challenge 2023</h3>
-                    <p class="issuer-name">Issued by: Space Robotics Society, Bengaluru, India (Jan 2023)</p>
-                </div>
-                <div class="skill-category">
-                    <h3 class="award-title">21st Place, International Rover Design Challenge 2022</h3>
-                    <p class="issuer-name">Issued by: Space Robotics Society (Dec 2022)</p>
-                </div>
-                <div class="skill-category">
-                    <h3 class="award-title">Crew Award, KIBO Robot Programming Challenge 2022</h3>
-                    <p class="issuer-name">Issued by: Japan Aerospace Exploration Agency (JAXA) (Oct 2022)</p>
-                </div>
-                <div class="skill-category">
-                    <h3 class="award-title">Champion, AUST Rover Challenge 2022</h3>
-                    <p class="issuer-name">Issued by: AUST Robotics Club, Dhaka, Bangladesh (Aug 2022)</p>
-                </div> -->
-            </div>
-        </section>
-
-        <!-- <section>
-            <h2>Volunteering</h2>
-            <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Volunteer</h3>
-                        <p class="company-name">2025 IEEE International Conference on Robotics and Automation (ICRA)</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Atlanta, USA</p>
-                        <p>May 2025</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Managed attendee check-ins, badge distribution, and orientation for hundreds of participants on
-                        Day 1.</li>
-                    <li>Promoted to Registration Team Manager on Day 2, training and supervising new volunteers during
-                        peak hours.</li>
-                    <li>Supported exhibitors and guided authors and attendees during the Exhibit Hall and Poster
-                        Sessions.</li>
-                    <li>Built professional connections by actively engaging with international participants and
-                        organizers.</li>
-                    <li>Gained experience in large-scale event logistics, cross-cultural communication, and team
-                        coordination.</li>
-                    <li>Balanced volunteer duties with academic contributions as a conference presenter.</li>
-                </ul>
-            </div>
-            <div class="experience-item">
-                <div class="header-flex">
-                    <div>
-                        <h3 class="role-title">Volunteer</h3>
-                        <p class="company-name">BRAC Hope Festival (BRAC University)</p>
-                    </div>
-                    <div class="date-location">
-                        <p>Dhaka, Bangladesh</p>
-                        <p>Feb 2023</p>
-                    </div>
-                </div>
-                <ul>
-                    <li>Organized and managed activities, ensuring smooth event operations.</li>
-                    <li>Showcased robotics projects (BRACU Mongol Tori), providing demonstrations to attendees.</li>
-                    <li>Represented the university, fostering interest in STEM and robotics.</li>
-                    <li>Collaborated with team members to create a vibrant educational experience.</li>
-                </ul>
-            </div>
-        </section> -->
-
-        <section>
-            <h2>References</h2>
-            <div class="skills-grid">
-                <!-- <div class="skill-category">
-                    <h3 class="ref-name">Dr. Md. Golam Rabiul Alam, PhD</h3>
-                    <p class="issuer-name">Professor, Dept. of Computer Science and Engineering<br>BRAC University,
-                        Dhaka, Bangladesh</p>
-                    <p>Email: <a href="mailto:rabiul.alam@bracu.ac.bd">rabiul.alam@bracu.ac.bd</a></p>
-                    <p>Phone: <a href="tel:+8801797347635">+8801797347635</a></p>
-                    <p>Tel: +8809617445063</p>
-                </div> -->
-                <div class="skill-category">
-                    <h3 class="ref-name">Dr. Md. Khalilur Rhaman, PhD</h3>
-                    <p class="issuer-name">Professor, Department of Computer Science and Engineering<br>BRAC University,
-                        Dhaka, Bangladesh</p>
-                    <p>Email: <a href="mailto:khalilur@bracu.ac.bd">khalilur@bracu.ac.bd</a></p>
-                    <p>Phone: <a href="tel:+8801752042223">+8801752042223</a></p>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="ref-name">Dr. Farig Yousuf Sadeque, PhD</h3>
-                    <p class="issuer-name">Assistant Professor, Department of Computer Science and Engineering<br>BRAC University,
-                        Dhaka, Bangladesh</p>
-                    <p>Email: <a href="mailto:farig.sadeque@bracu.ac.bd">farig.sadeque@bracu.ac.bd</a></p>
-                    <!-- <p>Phone: <a href="tel:+8801752042223">+8801752042223</a></p> -->
-                </div>
-                <!-- <div class="skill-category">
-                    <h3 class="ref-name">Roberto Fratello</h3>
-                    <p class="issuer-name">Tech Lead<br>Medical Support/Sa.Ni.Corporate Srl</p>
-                    <p>Email: <a href="mailto:roberto.fratello2@gmail.com">roberto.fratello2@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+393405317726">+393405317726</a></p>
-                </div>
-                <div class="skill-category">
-                    <h3 class="ref-name">Salman Ibne Eunus</h3>
-                    <p class="issuer-name">Chief Educational Instructor, The AI Educator<br>(Formerly Research Assistant
-                        at Genofax)</p>
-                    <p>Email: <a href="mailto:salmaneunus27@gmail.com">salmaneunus27@gmail.com</a></p>
-                    <p>Phone: <a href="tel:+8801746208374">+8801746208374</a></p>
-                </div> -->
-            </div>
-        </section>
-
-        <footer>
-            <p>Last updated: May 2026</p>
-        </footer>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast page">
+  <div class="mast__row">
+    <div>
+      <h1 class="mast__name"><a href="/">Hironmoy Roy Rudra</a></h1>
+      <p class="mast__tag">I build the simulation, perception and planning stacks that let field robots drive on ground nobody has mapped.</p>
+      <p class="mast__line">BSc Computer Science, BRAC University, Dhaka. Expected graduation January 2027. Applying for Fall 2027 PhD programmes.</p>
     </div>
-
-    <a href="index.html" class="floating-button home-floating" aria-label="Home">
-        <i data-lucide="home"></i>
-    </a>
-
-    <button type="button" id="downloadCvBtn" class="floating-button download-floating-trigger"
-        aria-label="Download CV">
-        <i data-lucide="download"></i>
-    </button>
-
-    <div id="cvModalOverlay" class="modal-overlay"></div>
-    <div id="cvModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-header">
-            <h3 id="modalTitle" class="modal-title">Select CV Version</h3>
-            <button type="button" class="modal-close-button" aria-label="Close modal">&times;</button>
-        </div>
-        <div class="modal-body">
-            <a href="CV of Mollah Md Saif (AI).pdf" class="modal-button" target="_blank"
-                download="CV of Mollah Md Saif (AI).pdf">
-                AI Software Engineer CV
-            </a>
-            <a href="CV of Mollah Md Saif (Robotics).pdf" class="modal-button" target="_blank"
-                download="CV of Mollah Md Saif (Robotics).pdf">
-                Robotics Engineer CV
-            </a>
-            <a href="CV of Mollah Md Saif (Academic).pdf" class="modal-button" target="_blank"
-                download="CV of Mollah Md Saif (Academic).pdf">
-                Academic CV
-            </a>
-        </div>
-    </div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.474.0/dist/umd/lucide.min.js"></script>
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-
-        // Modal JavaScript
-        const downloadBtn = document.getElementById('downloadCvBtn');
-        const modal = document.getElementById('cvModal');
-        const overlay = document.getElementById('cvModalOverlay');
-        const closeModalBtn = modal.querySelector('.modal-close-button');
-
-        function openModal() {
-            modal.classList.add('show');
-            overlay.classList.add('show');
-            // Optional: Focus the first button in the modal for accessibility
-            modal.querySelector('.modal-button')?.focus();
-        }
-
-        function closeModal() {
-            modal.classList.remove('show');
-            overlay.classList.remove('show');
-            // Optional: Return focus to the button that opened the modal
-            downloadBtn?.focus();
-        }
-
-        if (downloadBtn && modal && overlay && closeModalBtn) {
-            downloadBtn.addEventListener('click', openModal);
-            closeModalBtn.addEventListener('click', closeModal);
-            overlay.addEventListener('click', closeModal);
-
-            // Close modal on Escape key press
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && modal.classList.contains('show')) {
-                    closeModal();
-                }
-            });
-        } else {
-            console.error("Modal elements not found!");
-        }
-
-    </script>
+    <address class="mast__contact">
+      <a class="mast__cv" href="cv/academic.pdf">Academic CV (PDF)</a>
+      <a href="mailto:hironmoy5458@gmail.com">hironmoy5458@gmail.com</a>
+      <a href="https://github.com/Rudra-roy">github.com/Rudra-roy</a>
+      <a href="https://linkedin.com/in/hironmoy-roy-rudra">linkedin.com/in/hironmoy-roy-rudra</a>
+    </address>
+  </div>
+  <nav class="mast__nav" aria-label="Sections"><a href="#now">Current work</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="cv/academic.pdf">CV (PDF)</a></nav>
+</header>
+<main id="main" class="page">
+  <figure class="media media--hero media--3d plate" data-plate><div class="stage"><canvas tabindex="0" aria-label="Interactive 3-D view of the Mongol-Tori rocker-differential rover driving a synthetic heightfield; drag or use the arrow keys to orbit"></canvas><picture><source srcset="media/rover-poster-dark.jpg" media="(prefers-color-scheme: dark)"><img class="poster" src="media/rover-poster.jpg" alt="The Mongol-Tori rocker-differential rover on a synthetic heightfield, rendered from its Fusion 360 CAD" width="1600" height="900" fetchpriority="high"></picture></div><figcaption>Interactive: the Mongol-Tori rocker-differential rover, from the Fusion 360 CAD used in rocker-loop-sim, driving a synthetic heightfield; the rockers, connecting rods and differential bar follow the ground. Drag or use the arrow keys to orbit.</figcaption></figure>
+  <section id="about" class="section"><div class="grid"><div class="key"><h2>About</h2></div><div class="entries"><p>My work runs along three lines: uncertainty-aware navigation for planetary and field rovers (CERTUS, the BARN challenge, the BRACU Mongol-Tori Mars rover), event-based vision for agile multi-robot teams (COVE, evs-bench, hifi-environment-builder), and datasets for the dense, unstructured traffic of South Asian cities (DhakaSense).</p><p>What ties them together is simulation that can be trusted as ground truth: environments with exact labels, pinned renderers and reproducible builds, so a result in the simulator means something on the rover.</p></div></div></section><section id="now" class="section"><div class="grid"><div class="key"><h2>Current work</h2></div><div class="entries"><article class="card" data-reveal><div class="card__head"><h3>CERTUS</h3><span class="badge badge--prep">In preparation</span></div><p class="card__meta">target IROS 2027 · first author</p><p>A rover that drives only on ground it has certified under its own sensing uncertainty, and looks where it must to certify more; Isaac Sim first, then a real rover.</p><figure class="media media--diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="100%" role="img" aria-labelledby="dg-planner-t dg-planner-d" class="dg-planner">
+<title id="dg-planner-t">Grid search and model-predictive horizon</title>
+<desc id="dg-planner-d">An occupancy grid with obstacle cells. A search frontier expands cell by cell from the start until it reaches the goal, a smoothed path draws itself through the explored cells, and a short horizon of predicted rover footprints slides along the path.</desc>
+<style>
+.dg-planner{display:block}
+.dg-planner-grid{fill:none;stroke-width:1;vector-effect:non-scaling-stroke;shape-rendering:crispEdges;stroke:var(--rule, #c7ccc1)}
+.dg-planner-obst{fill:currentColor}
+.dg-planner-f rect{width:15px;height:15px;fill:var(--muted, #5e645b);fill-opacity:.16;opacity:calc(var(--dg-planner-p) * 191 - var(--i))}
+.dg-planner-path{fill:none;stroke:var(--accent, #8a2b2b);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:525.0;stroke-dashoffset:0}
+.dg-planner-mark{fill:none;stroke:currentColor;stroke-width:1.5}
+.dg-planner-hz{display:none}
+@supports (offset-path:path("M0 0h1")){
+.dg-planner-hz{display:inline;fill:none;stroke:var(--accent, #8a2b2b);stroke-width:1.5;stroke-linejoin:round;opacity:calc(1 - var(--k) * .17);offset-path:path("M37.5 217.5L45 217.5Q52.5 217.5 60 210Q67.5 202.5 75 195Q82.5 187.5 90 187.5Q97.5 187.5 105 187.5Q112.5 187.5 120 187.5Q127.5 187.5 127.5 180Q127.5 172.5 127.5 165Q127.5 157.5 135 150Q142.5 142.5 150 142.5Q157.5 142.5 165 135Q172.5 127.5 180 120Q187.5 112.5 195 105Q202.5 97.5 210 90Q217.5 82.5 217.5 75Q217.5 67.5 217.5 60Q217.5 52.5 225 52.5Q232.5 52.5 240 52.5Q247.5 52.5 255 52.5Q262.5 52.5 270 52.5Q277.5 52.5 285 60Q292.5 67.5 300 75Q307.5 82.5 315 90Q322.5 97.5 330 105Q337.5 112.5 345 112.5Q352.5 112.5 360 112.5Q367.5 112.5 375 112.5Q382.5 112.5 390 112.5Q397.5 112.5 405 105Q412.5 97.5 420 97.5Q427.5 97.5 435 97.5L442.5 97.5");offset-distance:calc(84% + var(--k) * 4%)}
+.dg-planner-hz[style*="--k:0"]{fill:var(--accent, #8a2b2b)}
+}
+@property --dg-planner-p{syntax:"&lt;number&gt;";inherits:true;initial-value:1}
+@media (prefers-reduced-motion: no-preference){
+.dg-planner-run{animation:dg-planner-run 8s linear infinite}
+.dg-planner-path{animation:dg-planner-draw 8s cubic-bezier(.4,0,.6,1) infinite}
+.dg-planner-hz{animation:dg-planner-slide 8s linear infinite}
+}
+@keyframes dg-planner-run{0%,4%{--dg-planner-p:0;opacity:1}42%,95%{--dg-planner-p:1;opacity:1}100%{--dg-planner-p:1;opacity:0}}
+@keyframes dg-planner-draw{0%,43%{stroke-dashoffset:525.0}60%,100%{stroke-dashoffset:0}}
+@keyframes dg-planner-slide{0%,60%{opacity:0;offset-distance:calc(var(--k) * 4%)}62%{opacity:calc(1 - var(--k) * .17)}88%,100%{opacity:calc(1 - var(--k) * .17);offset-distance:calc(84% + var(--k) * 4%)}}
+</style>
+<rect x=".5" y=".5" width="479" height="269" style="fill:none;stroke-width:1;vector-effect:non-scaling-stroke;shape-rendering:crispEdges;stroke:var(--rule, #c7ccc1)"/>
+<path class="dg-planner-grid" d="M15 0V270M30 0V270M45 0V270M60 0V270M75 0V270M90 0V270M105 0V270M120 0V270M135 0V270M150 0V270M165 0V270M180 0V270M195 0V270M210 0V270M225 0V270M240 0V270M255 0V270M270 0V270M285 0V270M300 0V270M315 0V270M330 0V270M345 0V270M360 0V270M375 0V270M390 0V270M405 0V270M420 0V270M435 0V270M450 0V270M465 0V270M0 15H480M0 30H480M0 45H480M0 60H480M0 75H480M0 90H480M0 105H480M0 120H480M0 135H480M0 150H480M0 165H480M0 180H480M0 195H480M0 210H480M0 225H480M0 240H480M0 255H480"/>
+<path class="dg-planner-obst" d="M75 120h15v15h-15zM75 135h15v15h-15zM75 150h15v15h-15zM90 60h15v15h-15zM90 75h15v15h-15zM90 135h15v15h-15zM90 150h15v15h-15zM105 60h15v15h-15zM105 75h15v15h-15zM150 180h15v15h-15zM150 195h15v15h-15zM165 30h15v15h-15zM165 45h15v15h-15zM165 180h15v15h-15zM165 195h15v15h-15zM180 30h15v15h-15zM180 45h15v15h-15zM180 180h15v15h-15zM180 195h15v15h-15zM210 225h15v15h-15zM210 240h15v15h-15zM240 75h15v15h-15zM240 90h15v15h-15zM240 105h15v15h-15zM240 120h15v15h-15zM255 90h15v15h-15zM255 105h15v15h-15zM255 120h15v15h-15zM300 135h15v15h-15zM300 150h15v15h-15zM300 165h15v15h-15zM300 180h15v15h-15zM330 225h15v15h-15zM330 240h15v15h-15zM345 45h15v15h-15zM345 60h15v15h-15zM360 30h15v15h-15zM360 45h15v15h-15zM360 60h15v15h-15zM360 75h15v15h-15zM375 45h15v15h-15zM375 60h15v15h-15zM390 165h15v15h-15zM390 180h15v15h-15zM390 195h15v15h-15zM405 180h15v15h-15zM405 195h15v15h-15z"/>
+<g class="dg-planner-run">
+<g class="dg-planner-f"><rect x="30" y="210" style="--i:0"/><rect x="45" y="210" style="--i:1"/><rect x="60" y="210" style="--i:2"/><rect x="75" y="210" style="--i:3"/><rect x="90" y="210" style="--i:4"/><rect x="105" y="210" style="--i:5"/><rect x="120" y="210" style="--i:6"/><rect x="45" y="195" style="--i:7"/><rect x="60" y="195" style="--i:8"/><rect x="75" y="180" style="--i:9"/><rect x="90" y="180" style="--i:10"/><rect x="105" y="180" style="--i:11"/><rect x="120" y="180" style="--i:12"/><rect x="75" y="195" style="--i:13"/><rect x="90" y="195" style="--i:14"/><rect x="105" y="195" style="--i:15"/><rect x="120" y="195" style="--i:16"/><rect x="60" y="180" style="--i:17"/><rect x="30" y="195" style="--i:18"/><rect x="45" y="180" style="--i:19"/><rect x="120" y="165" style="--i:20"/><rect x="45" y="225" style="--i:21"/><rect x="60" y="225" style="--i:22"/><rect x="75" y="225" style="--i:23"/><rect x="90" y="225" style="--i:24"/><rect x="105" y="225" style="--i:25"/><rect x="120" y="225" style="--i:26"/><rect x="135" y="225" style="--i:27"/><rect x="150" y="225" style="--i:28"/><rect x="165" y="225" style="--i:29"/><rect x="180" y="225" style="--i:30"/><rect x="120" y="150" style="--i:31"/><rect x="135" y="135" style="--i:32"/><rect x="135" y="150" style="--i:33"/><rect x="150" y="135" style="--i:34"/><rect x="150" y="150" style="--i:35"/><rect x="165" y="135" style="--i:36"/><rect x="165" y="150" style="--i:37"/><rect x="180" y="135" style="--i:38"/><rect x="180" y="150" style="--i:39"/><rect x="195" y="135" style="--i:40"/><rect x="195" y="150" style="--i:41"/><rect x="210" y="135" style="--i:42"/><rect x="210" y="150" style="--i:43"/><rect x="225" y="150" style="--i:44"/><rect x="30" y="180" style="--i:45"/><rect x="45" y="165" style="--i:46"/><rect x="210" y="120" style="--i:47"/><rect x="240" y="150" style="--i:48"/><rect x="255" y="150" style="--i:49"/><rect x="270" y="150" style="--i:50"/><rect x="150" y="120" style="--i:51"/><rect x="165" y="120" style="--i:52"/><rect x="180" y="120" style="--i:53"/><rect x="195" y="120" style="--i:54"/><rect x="210" y="105" style="--i:55"/><rect x="165" y="105" style="--i:56"/><rect x="180" y="105" style="--i:57"/><rect x="195" y="105" style="--i:58"/><rect x="210" y="90" style="--i:59"/><rect x="180" y="90" style="--i:60"/><rect x="195" y="90" style="--i:61"/><rect x="30" y="225" style="--i:62"/><rect x="60" y="240" style="--i:63"/><rect x="75" y="240" style="--i:64"/><rect x="90" y="240" style="--i:65"/><rect x="105" y="240" style="--i:66"/><rect x="120" y="240" style="--i:67"/><rect x="135" y="240" style="--i:68"/><rect x="150" y="240" style="--i:69"/><rect x="165" y="240" style="--i:70"/><rect x="180" y="240" style="--i:71"/><rect x="120" y="135" style="--i:72"/><rect x="135" y="120" style="--i:73"/><rect x="30" y="165" style="--i:74"/><rect x="45" y="150" style="--i:75"/><rect x="150" y="105" style="--i:76"/><rect x="165" y="90" style="--i:77"/><rect x="15" y="195" style="--i:78"/><rect x="15" y="210" style="--i:79"/><rect x="225" y="165" style="--i:80"/><rect x="240" y="165" style="--i:81"/><rect x="255" y="165" style="--i:82"/><rect x="270" y="165" style="--i:83"/><rect x="195" y="75" style="--i:84"/><rect x="210" y="75" style="--i:85"/><rect x="45" y="240" style="--i:86"/><rect x="45" y="135" style="--i:87"/><rect x="120" y="120" style="--i:88"/><rect x="135" y="105" style="--i:89"/><rect x="30" y="150" style="--i:90"/><rect x="150" y="90" style="--i:91"/><rect x="75" y="255" style="--i:92"/><rect x="90" y="255" style="--i:93"/><rect x="105" y="255" style="--i:94"/><rect x="120" y="255" style="--i:95"/><rect x="135" y="255" style="--i:96"/><rect x="150" y="255" style="--i:97"/><rect x="165" y="255" style="--i:98"/><rect x="180" y="255" style="--i:99"/><rect x="15" y="180" style="--i:100"/><rect x="210" y="165" style="--i:101"/><rect x="180" y="75" style="--i:102"/><rect x="15" y="225" style="--i:103"/><rect x="30" y="240" style="--i:104"/><rect x="240" y="180" style="--i:105"/><rect x="255" y="180" style="--i:106"/><rect x="270" y="180" style="--i:107"/><rect x="45" y="120" style="--i:108"/><rect x="120" y="105" style="--i:109"/><rect x="135" y="90" style="--i:110"/><rect x="30" y="135" style="--i:111"/><rect x="60" y="255" style="--i:112"/><rect x="15" y="165" style="--i:113"/><rect x="165" y="75" style="--i:114"/><rect x="225" y="180" style="--i:115"/><rect x="210" y="60" style="--i:116"/><rect x="45" y="105" style="--i:117"/><rect x="30" y="120" style="--i:118"/><rect x="45" y="255" style="--i:119"/><rect x="255" y="195" style="--i:120"/><rect x="270" y="195" style="--i:121"/><rect x="15" y="150" style="--i:122"/><rect x="150" y="75" style="--i:123"/><rect x="0" y="180" style="--i:124"/><rect x="0" y="195" style="--i:125"/><rect x="0" y="210" style="--i:126"/><rect x="210" y="180" style="--i:127"/><rect x="45" y="90" style="--i:128"/><rect x="30" y="105" style="--i:129"/><rect x="60" y="90" style="--i:130"/><rect x="15" y="240" style="--i:131"/><rect x="30" y="255" style="--i:132"/><rect x="240" y="195" style="--i:133"/><rect x="15" y="135" style="--i:134"/><rect x="135" y="75" style="--i:135"/><rect x="270" y="210" style="--i:136"/><rect x="285" y="210" style="--i:137"/><rect x="300" y="210" style="--i:138"/><rect x="0" y="165" style="--i:139"/><rect x="30" y="90" style="--i:140"/><rect x="0" y="225" style="--i:141"/><rect x="225" y="195" style="--i:142"/><rect x="210" y="45" style="--i:143"/><rect x="225" y="45" style="--i:144"/><rect x="240" y="45" style="--i:145"/><rect x="255" y="45" style="--i:146"/><rect x="270" y="45" style="--i:147"/><rect x="285" y="45" style="--i:148"/><rect x="285" y="60" style="--i:149"/><rect x="300" y="45" style="--i:150"/><rect x="300" y="60" style="--i:151"/><rect x="300" y="75" style="--i:152"/><rect x="315" y="45" style="--i:153"/><rect x="315" y="60" style="--i:154"/><rect x="315" y="75" style="--i:155"/><rect x="315" y="90" style="--i:156"/><rect x="330" y="90" style="--i:157"/><rect x="105" y="105" style="--i:158"/><rect x="15" y="120" style="--i:159"/><rect x="60" y="75" style="--i:160"/><rect x="255" y="210" style="--i:161"/><rect x="0" y="150" style="--i:162"/><rect x="285" y="225" style="--i:163"/><rect x="300" y="225" style="--i:164"/><rect x="210" y="195" style="--i:165"/><rect x="270" y="60" style="--i:166"/><rect x="285" y="75" style="--i:167"/><rect x="300" y="90" style="--i:168"/><rect x="15" y="105" style="--i:169"/><rect x="45" y="75" style="--i:170"/><rect x="15" y="255" style="--i:171"/><rect x="240" y="210" style="--i:172"/><rect x="0" y="240" style="--i:173"/><rect x="225" y="30" style="--i:174"/><rect x="240" y="30" style="--i:175"/><rect x="255" y="30" style="--i:176"/><rect x="270" y="30" style="--i:177"/><rect x="285" y="30" style="--i:178"/><rect x="300" y="30" style="--i:179"/><rect x="315" y="30" style="--i:180"/><rect x="330" y="105" style="--i:181"/><rect x="345" y="105" style="--i:182"/><rect x="360" y="105" style="--i:183"/><rect x="375" y="105" style="--i:184"/><rect x="390" y="105" style="--i:185"/><rect x="405" y="90" style="--i:186"/><rect x="405" y="105" style="--i:187"/><rect x="420" y="90" style="--i:188"/><rect x="420" y="105" style="--i:189"/><rect x="435" y="90" style="--i:190"/></g>
+<path class="dg-planner-path" d="M37.5 217.5L45 217.5Q52.5 217.5 60 210Q67.5 202.5 75 195Q82.5 187.5 90 187.5Q97.5 187.5 105 187.5Q112.5 187.5 120 187.5Q127.5 187.5 127.5 180Q127.5 172.5 127.5 165Q127.5 157.5 135 150Q142.5 142.5 150 142.5Q157.5 142.5 165 135Q172.5 127.5 180 120Q187.5 112.5 195 105Q202.5 97.5 210 90Q217.5 82.5 217.5 75Q217.5 67.5 217.5 60Q217.5 52.5 225 52.5Q232.5 52.5 240 52.5Q247.5 52.5 255 52.5Q262.5 52.5 270 52.5Q277.5 52.5 285 60Q292.5 67.5 300 75Q307.5 82.5 315 90Q322.5 97.5 330 105Q337.5 112.5 345 112.5Q352.5 112.5 360 112.5Q367.5 112.5 375 112.5Q382.5 112.5 390 112.5Q397.5 112.5 405 105Q412.5 97.5 420 97.5Q427.5 97.5 435 97.5L442.5 97.5"/>
+<path class="dg-planner-hz" style="--k:0" d="M-6-4h12v8h-12zM6 0h4"/><path class="dg-planner-hz" style="--k:1" d="M-6-4h12v8h-12zM6 0h4"/><path class="dg-planner-hz" style="--k:2" d="M-6-4h12v8h-12zM6 0h4"/><path class="dg-planner-hz" style="--k:3" d="M-6-4h12v8h-12zM6 0h4"/><path class="dg-planner-hz" style="--k:4" d="M-6-4h12v8h-12zM6 0h4"/>
+</g>
+<circle class="dg-planner-mark" cx="37.5" cy="217.5" r="3" style="fill:currentColor"/>
+<circle class="dg-planner-mark" cx="442.5" cy="97.5" r="5.5"/>
+<circle cx="442.5" cy="97.5" r="1.5" style="fill:currentColor"/>
+</svg><figcaption>Planning sketch drawn for this page: an occupancy grid, a search frontier, the path it finds and a short predictive horizon; not a figure from any manuscript.</figcaption></figure></article><article class="card" data-reveal><div class="card__head"><h3>COVE</h3><span class="badge badge--prep">In preparation</span></div><p class="card__meta">COVE-Sim targets IROS 2027 (first author); the COVE hazard dataset targets NeurIPS 2027 Datasets &amp; Benchmarks (collaboration)</p><p>Event-camera UAV teams deciding what to tell which teammate, built on five industrial environment families with exact label geometry in Unreal Engine 5.</p><figure class="media media--diagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="100%" role="img" aria-labelledby="dg-events-t dg-events-d" class="dg-events">
+<title id="dg-events-t">Event-camera stream against frames</title>
+<desc id="dg-events-d">A sensor frame on the left with a dark object crossing it. On the right a time axis fills with small on and off event ticks in bursts as the object's edges cross pixels, dense where it moves fast and sparse where it is slow, above a second axis with a few evenly spaced frame ticks.</desc>
+<style>
+.dg-events{display:block}
+.dg-events-grid{fill:none;stroke-width:1;vector-effect:non-scaling-stroke;shape-rendering:crispEdges;stroke:var(--rule, #c7ccc1);opacity:.75}
+.dg-events-frame{fill:none;stroke-width:1;vector-effect:non-scaling-stroke;shape-rendering:crispEdges;stroke:currentColor}
+.dg-events-axis{fill:none;stroke-width:1;vector-effect:non-scaling-stroke;shape-rendering:crispEdges;stroke:currentColor;shape-rendering:auto}
+.dg-events-obj{fill:currentColor}
+.dg-events-edge{fill:none;stroke-width:1.5}
+.dg-events-on{fill:none;stroke:var(--accent, #8a2b2b);stroke-width:1.5}
+.dg-events-off{fill:none;stroke:currentColor;stroke-width:1.5;opacity:.85}
+.dg-events-frames{fill:none;stroke:var(--muted, #5e645b);stroke-width:1;vector-effect:non-scaling-stroke}
+.dg-events-cursor{fill:none;stroke:var(--muted, #5e645b);stroke-width:1;vector-effect:non-scaling-stroke;opacity:0;transform:translateX(216px)}
+.dg-events-mv{transform:translate(156px,26px)}
+.dg-events-txt{font:10px var(--sans, "Source Sans 3", "Helvetica Neue", Arial, sans-serif);fill:var(--muted, #5e645b)}
+.dg-events-sweep{clip-path:inset(0 0 0 0)}
+@media (prefers-reduced-motion: no-preference){
+.dg-events-run{animation:dg-events-run 6s linear infinite}
+.dg-events-mv{animation:dg-events-cross 6s ease-in-out infinite}
+.dg-events-sweep{animation:dg-events-sweep 6s linear infinite}
+.dg-events-cursor{animation:dg-events-cursor 6s linear infinite}
+}
+@keyframes dg-events-run{0%,94%{opacity:1}100%{opacity:0}}
+@keyframes dg-events-cross{0%,6.67%{transform:translate(0,0)}76.67%,100%{transform:translate(156px,26px)}}
+@keyframes dg-events-sweep{0%,6.67%{clip-path:inset(0 100% 0 0)}76.67%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes dg-events-cursor{0%{opacity:0;transform:translateX(0)}6.67%{opacity:.7;transform:translateX(0)}76%{opacity:.7}76.67%,100%{opacity:0;transform:translateX(216px)}}
+</style>
+<rect x=".5" y=".5" width="479" height="269" style="fill:none;stroke-width:1;vector-effect:non-scaling-stroke;shape-rendering:crispEdges;stroke:var(--rule, #c7ccc1)"/>
+<path class="dg-events-grid" d="M42 58v140M56 58v140M70 58v140M84 58v140M98 58v140M112 58v140M126 58v140M140 58v140M154 58v140M168 58v140M182 58v140M196 58v140M28 72h182M28 86h182M28 100h182M28 114h182M28 128h182M28 142h182M28 156h182M28 170h182M28 184h182"/>
+<rect class="dg-events-frame" x="28" y="58" width="182" height="140"/>
+<text class="dg-events-txt" x="28" y="48">sensor</text>
+<text class="dg-events-txt" x="236" y="48">events</text>
+<text class="dg-events-txt" x="230" y="116" text-anchor="end">on</text>
+<text class="dg-events-txt" x="230" y="131" text-anchor="end">off</text>
+<text class="dg-events-txt" x="236" y="178">frames</text>
+<text class="dg-events-txt" x="460" y="123.5">t</text>
+<text class="dg-events-txt" x="460" y="199.5">t</text>
+<path class="dg-events-axis" d="M236 120H452m-4-3l4 3-4 3M236 196H452m-4-3l4 3-4 3"/>
+<g class="dg-events-run">
+<g class="dg-events-sweep">
+<rect x="236" y="100" width="216" height="110" fill="none"/>
+<path class="dg-events-on" d="M276.8 120v-11.1M276.9 120v-7.5M276.9 120v-9.9M277.6 120v-8.3M278.8 120v-7.8M279.1 120v-9.0M284.1 120v-4.3M297.4 120v-9.0M297.5 120v-11.7M298.1 120v-8.4M298.4 120v-7.2M311.4 120v-9.7M311.9 120v-10.2M322.5 120v-4.7M323.5 120v-10.9M324.0 120v-8.2M324.2 120v-11.6M335.5 120v-11.7M336.0 120v-7.8M336.2 120v-7.4M346.2 120v-8.3M346.8 120v-9.5M347.7 120v-7.3M348.0 120v-7.3M357.9 120v-11.8M358.1 120v-10.7M358.2 120v-10.1M358.3 120v-10.5M358.6 120v-8.1M370.5 120v-8.8M371.6 120v-8.4M371.7 120v-11.8M383.3 120v-11.3M383.3 120v-9.7M383.4 120v-8.4M384.5 120v-8.6M399.8 120v-7.3M399.9 120v-10.2M400.1 120v-7.8M426.5 120v-8.3M428.4 120v-10.1"/>
+<path class="dg-events-off" d="M259.8 120v7.4M260.4 120v8.2M260.7 120v7.3M260.7 120v11.7M287.2 120v9.9M287.3 120v10.4M303.8 120v9.7M303.9 120v10.1M317.5 120v9.6M318.3 120v10.6M328.2 120v10.3M330.1 120v9.9M330.3 120v8.6M340.2 120v8.9M341.2 120v7.1M341.3 120v10.2M342.1 120v11.1M348.0 120v4.9M349.2 120v7.5M349.5 120v8.5M351.0 120v9.2M351.8 120v11.4M352.2 120v11.4M362.6 120v7.8M364.1 120v7.1M373.5 120v4.4M376.2 120v11.4M376.4 120v9.0M376.7 120v10.7M377.4 120v10.4M391.0 120v9.7M391.1 120v7.5M392.0 120v10.1M399.8 120v3.8M409.0 120v9.4M410.3 120v9.4M411.3 120v9.4"/>
+<path class="dg-events-frames" d="M233.0 185h6v11h-6zM269.0 185h6v11h-6zM305.0 185h6v11h-6zM341.0 185h6v11h-6zM377.0 185h6v11h-6zM413.0 185h6v11h-6zM449.0 185h6v11h-6z"/>
+</g>
+<path class="dg-events-cursor" d="M236 100V202"/>
+<g class="dg-events-mv">
+<rect class="dg-events-obj" x="30" y="112" width="22" height="16" rx="1"/>
+<path class="dg-events-edge" d="M53.5 110v20" style="stroke:currentColor;opacity:.85"/>
+<path class="dg-events-edge" d="M28.5 110v20" style="stroke:var(--accent, #8a2b2b)"/>
+</g>
+</g>
+</svg><figcaption>Event-camera sketch drawn for this page: a moving object produces asynchronous ON and OFF events, against the sparse ticks of a frame camera; not a figure from any manuscript.</figcaption></figure></article><article class="card" data-reveal><div class="card__head"><h3>DhakaSense</h3><span class="badge badge--review">Under review</span></div><p class="card__meta">ICRA 2027 · second author</p><p>A 3-D driving dataset and density-stratified benchmark for the dense, mixed traffic of Dhaka, from a low-cost LiDAR, stereo and six-camera rig.</p></article></div></div></section><section id="publications" class="section"><div class="grid"><div class="key"><h2>Publications and manuscripts</h2></div><div class="entries"><p class="note note--lead">Listed by title only: no PDFs, and no figures, from manuscripts under review or in preparation. No author lists for unpublished work.</p><article class="card" data-reveal><div class="card__head"><h3>Matched Controls for Probe-Based LoRA Rank Allocation: A Negative Result for One Allocator under a Rank-Coupled Initialization</h3><span class="badge badge--review">Under review</span></div><p class="card__meta">Transactions on Machine Learning Research, first author</p><p>Five-seed, budget-matched comparison of a probe-based rank allocator against uniform-rank LoRA, LoRA and GoRA on eight commonsense tasks across three decoders plus 11 of 24 GLUE cells; the allocator trails the matched control in 26 of 35 cells.</p></article><article class="card" data-reveal><div class="card__head"><h3>DhakaSense: A Multimodal Driving Dataset and Benchmark for Dense, Heterogeneous Traffic in Dhaka</h3><span class="badge badge--review">Under review</span></div><p class="card__meta">IEEE ICRA 2027, second author</p><p>14 h 35 min across 175 scenes from a Livox Mid-360, stereo depth, six RGB cameras and post-processed GNSS/INS, with CNG auto-rickshaws and cycle rickshaws as 3D classes and every metric reported per traffic-density level.</p><div class="card__links"><span class="card__links-label">Related engineering on this page:</span><a href="#proj-r9">DhakaSense capture and annotation stack</a></div></article><article class="card" data-reveal><div class="card__head"><h3>CERTUS: Certified Terrain Traversal Under Sensing Uncertainty, with Certification-Driven Active Perception</h3><span class="badge badge--prep">In preparation</span></div><p class="card__meta">IEEE/RSJ IROS 2027, first author</p><p>A rover drives only on ground it has certified: step, slope and body clearance pass with a distribution-free margin on the map&#x27;s own uncertainty; a decidability rule predicts which depth sensor can certify which rover; when nothing ahead is certified, active perception picks the viewpoint that resolves the most blocking cells per second. Validated in Isaac Sim before deployment on a real rover.</p><div class="card__links"><span class="card__links-label">Related engineering on this page:</span><a href="#proj-r10">CERTUS navigation stack</a></div></article><article class="card" data-reveal><div class="card__head"><h3>COVE-Sim: counterfactual, recipient-specific communication for event-camera UAV teams (working title)</h3><span class="badge badge--prep">In preparation</span></div><p class="card__meta">IROS 2027, first author</p><p>The first collaborative-perception system whose shared representation is event-derived, with a counterfactually supervised, recipient-specific gate deciding what crosses the link; simulation study in Unreal Engine 5.8 / Cosys-AirSim.</p><div class="card__links"><span class="card__links-label">Related engineering on this page:</span><a href="#proj-r2">hifi-environment-builder (hifienv)</a><a href="#proj-r3">evs-bench</a></div></article><article class="card" data-reveal><div class="card__head"><h3>COVE multi-UAV hazard detection and avoidance dataset (working title)</h3><span class="badge badge--prep">In preparation</span></div><p class="card__meta">NeurIPS 2027 Datasets &amp; Benchmarks track, collaboration</p><p>Five industrial environment families with seeded layouts, exact label geometry, QC gates and rule-breaking hazard speeds, captured with event and RGB cameras.</p><div class="card__links"><span class="card__links-label">Related engineering on this page:</span><a href="#proj-r2">hifi-environment-builder (hifienv)</a></div></article></div></div></section><section id="projects" class="section"><div class="grid"><div class="key"><h2>Projects</h2></div><div class="entries"><article class="card" id="proj-r10" data-reveal><div class="card__head"><h3>CERTUS navigation stack</h3></div><p class="card__meta">Sep 2026 – present</p><ul class="stack" aria-label="Stack"><li>ZED 2i</li><li>elevation_mapping_cupy</li><li>TOPP-RA</li><li>cvxpy</li><li>Isaac Sim 6.0.1</li><li>ROS 2 Jazzy</li></ul><p>Sim-first research stack behind CERTUS: ZED 2i stereo depth through elevation_mapping_cupy to slope, roughness and uncertainty layers; TOPP-RA (cvxpy) velocity profiles whose limits vary along the path; Isaac Sim 6.0.1 scenes for Clearpath Husky, Jackal and Warthog; a ROS 2 Jazzy container; and a staged, idempotent setup script that pins every dependency by checksum and fails unless it reproduces the reported run.</p></article><article class="card" id="proj-r1" data-reveal><div class="card__head"><h3>BARN Challenge 2027 preparation</h3><span class="badge badge--public">Public code</span></div><p class="card__meta">Jul – Aug 2026</p><ul class="stack" aria-label="Stack"><li>ROS 2 Jazzy</li><li>C++</li><li>Clearpath Jackal</li><li>2-D LiDAR</li><li>MPC as a QP at 30 Hz</li></ul><p>Full classical autonomy stack for the ICRA BARN Challenge (Clearpath Jackal, 2-D LiDAR, hidden obstacle worlds): online occupancy and distance field, A*, elastic band, sequentially linearised MPC solved as a QP at 30 Hz, safety shield, recovery; ROS 2 Jazzy, C++; a 500-trial campaign protocol on the BARN 2026 public 50-world suite; a nine-chapter tutorial and a live site with seven interactive demos.</p><figure class="media"><div class="strip" tabindex="0" role="region" aria-label="BARN worlds 5, 32, 62, 155 and 299; scrolls sideways on narrow screens"><img src="media/barn-world-5.webp" alt="BARN world 5: the Jackal in a walled arena with a sparse scatter of red block obstacles, viewed from above in simulation" loading="lazy" width="629" height="309"><img src="media/barn-world-32.webp" alt="BARN world 32: a denser arrangement of red block obstacles inside the walled arena" loading="lazy" width="629" height="309"><img src="media/barn-world-62.webp" alt="BARN world 62: clustered red block obstacles forming narrow passages in the arena" loading="lazy" width="652" height="344"><img src="media/barn-world-155.webp" alt="BARN world 155: red block obstacles arranged along the arena&#x27;s length" loading="lazy" width="629" height="309"><img src="media/barn-world-299.webp" alt="BARN world 299: a tight obstacle field near the arena&#x27;s far wall" loading="lazy" width="629" height="309"></div><figcaption>Worlds 5, 32, 62, 155 and 299 of the BARN 2026 public 50-world suite.</figcaption></figure><div class="card__links"><a href="https://hironmoy.com/BARN/">Live demo</a><a href="https://github.com/Rudra-roy/BARN">Repository</a></div></article><article class="card" id="proj-r2" data-reveal><div class="card__head"><h3>hifi-environment-builder (hifienv)</h3><span class="badge badge--public">Public code</span></div><p class="card__meta">Oct 2026</p><ul class="stack" aria-label="Stack"><li>Python</li><li>Unreal Engine 5</li><li>Cosys-AirSim</li><li>Isaac Sim</li><li>USD</li><li>Blender</li></ul><p>Python toolkit and Claude Code skill that builds label-correct, sensor-clean, licence-clean, reproducible simulation environments for Unreal Engine 5 / Cosys-AirSim and Isaac Sim / USD from CC0 and CC-BY assets with provenance; parity, null-test and licence gates; 289 tests.</p><div class="figs figs--hifi"><figure class="media"><img src="media/hifienv-warehouse.webp" alt="Four renders of the same warehouse aisle with placed hazards: dropped pallets, a drone, a forklift and a person between the racking" loading="lazy" width="1440" height="810"><figcaption>One warehouse aisle, four hazard placements.</figcaption></figure><figure class="media"><img src="media/hifienv-lookdev.webp" alt="Five lighting variants of one warehouse aisle, each labelled with its variant name" loading="lazy" width="1250" height="486"><figcaption>Five lighting variants of the same aisle.</figcaption></figure></div><div class="card__links"><a href="https://github.com/Rudra-roy/hifi-environment-builder">Repository</a></div></article><article class="card" id="proj-r3" data-reveal><div class="card__head"><h3>evs-bench</h3></div><p class="card__meta">Jul – Sep 2026</p><ul class="stack" aria-label="Stack"><li>Python</li><li>ESIM event synthesis</li><li>YOLO11</li><li>SORT</li><li>AirSim</li></ul><p>Event-based surveillance benchmark tooling: corrected ESIM event synthesis, class-agnostic RGB and event detector baselines, dt-aware SORT tracking and a time-to-first-detection metric; now the capture infrastructure behind COVE. Private repository.</p></article><article class="card" id="proj-r4" data-reveal><div class="card__head"><h3>rocker-loop-sim</h3><span class="badge badge--public">Public code</span></div><p class="card__meta">Sep 2026</p><ul class="stack" aria-label="Stack"><li>Fusion 360</li><li>PyBullet</li><li>Gazebo Classic</li><li>ROS 2 Humble</li></ul><p>A closed-loop rocker-differential rover taken from Fusion 360 into PyBullet and Gazebo Classic: the loop stays closed to 0.003 mm in PyBullet, dead points found at −21.5° and +40° of rocker travel with ±15° hard stops recommended, skid versus ±90° steering compared on Apollo 15 terrain.</p><div class="figs figs--rocker"><figure class="media"><video controls muted playsinline loop autoplay preload="metadata" poster="media/rocker-hero-poster.jpg" width="1280" height="720" aria-label="The rocker rover rolling over a bump in PyBullet with live rocker, differential-bar and loop-gap readouts"><source src="media/rocker-hero.webm" type="video/webm"><source src="media/rocker-hero.mp4" type="video/mp4"></video><img class="poster" src="media/rocker-hero-poster.jpg" alt="The rocker rover rolling over a bump in PyBullet with live rocker, differential-bar and loop-gap readouts" loading="lazy" width="1280" height="720"><figcaption>PyBullet, closed loop under load; the loop gap stays within 0.003 mm.</figcaption></figure><figure class="media"><picture><source srcset="media/rocker-linkage-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/rocker-linkage-light.webp" alt="Diagram of the rocker-differential linkage: side view of one rocker and connecting rod, and rear view of the differential bar that closes the loop" loading="lazy" width="1600" height="735"></picture><figcaption>The closed loop: rocker, connecting rod, differential bar.</figcaption></figure></div><div class="figs figs--rocker2"><figure class="media"><picture><source srcset="media/rocker-loop-range-dark.webp" media="(prefers-color-scheme: dark)"><img src="media/rocker-loop-range-light.webp" alt="Plot of right rocker and differential-bar angle against left rocker angle: exact geometry as lines, PyBullet as circles, dead points at −21.5° and +40°, recommended ±15° hard stops shaded" loading="lazy" width="1600" height="855"></picture><figcaption>Loop range, exact geometry against PyBullet: dead points at −21.5° and +40°, the recommended ±15° hard stops shaded.</figcaption></figure><figure class="media"><img src="media/rocker-gazebo-rocks.webp" alt="The rocker rover on a rock-strewn terrain patch in Gazebo Classic" loading="lazy" width="1600" height="900"><figcaption>Gazebo Classic on rocky ground.</figcaption></figure></div><div class="card__links"><a href="https://github.com/Rudra-roy/rocker-loop-sim">Repository</a></div></article><article class="card" id="proj-r5" data-reveal><div class="card__head"><h3>BMHS path planner</h3><span class="badge badge--public">Public code</span></div><p class="card__meta">2026</p><ul class="stack" aria-label="Stack"><li>C++17</li><li>pybind11</li><li>Hybrid A*</li><li>OpenCV</li></ul><p>Bidirectional multi-heuristic hybrid A* for Ackermann and differential-drive vehicles: parallel 2-D Dijkstra heuristics in C++17 via pybind11, clearance-aware path simplification and Bézier smoothing that respects the minimum turning radius.</p><div class="figs figs--pair"><figure class="media"><img src="media/bmhs-ackermann_example.webp" alt="BMHS planner output for an Ackermann vehicle: a smoothed path with Bézier corners through a grid map with inflated obstacles" loading="lazy" width="607" height="1006"><figcaption>Ackermann mode: Bézier-smoothed corners that honour the minimum turning radius.</figcaption></figure><figure class="media"><img src="media/bmhs-differential_example.webp" alt="BMHS planner output for a differential-drive vehicle: long straight line-of-sight segments with in-place turns" loading="lazy" width="607" height="1006"><figcaption>Differential mode: line-of-sight segments and in-place pivots.</figcaption></figure></div><div class="card__links"><a href="https://github.com/Rudra-roy/BHMS-Kinematics-aware-path-planner">Repository</a></div></article><article class="card" id="proj-r6" data-reveal><div class="card__head"><h3>Unity digital twin of Mongol-Tori and ROS 2 software-in-the-loop workspace</h3><span class="badge badge--public">Public code</span></div><p class="card__meta">Dec 2025 – present</p><ul class="stack" aria-label="Stack"><li>Unity</li><li>MuJoCo</li><li>ROS 2</li><li>URDF</li></ul><p>High-fidelity Unity twin of the BRACU Mongol-Tori rover with a MuJoCo physics backend, URDF joints and custom mesh collisions for the rocker-bogie suspension; tied to a ROS 2 workspace so autonomy edge cases are validated virtually before hardware.</p><figure class="media"><video controls muted playsinline preload="none" poster="media/unity-rover-mission-poster.jpg" width="1280" height="720" aria-label="Unity game view of the Mongol-Tori digital twin following a waypoint path on desert terrain"><source src="media/unity-rover-mission.webm" type="video/webm"><source src="media/unity-rover-mission.mp4" type="video/mp4"></video><img class="poster" src="media/unity-rover-mission-poster.jpg" alt="Unity game view of the Mongol-Tori digital twin following a waypoint path on desert terrain" loading="lazy" width="1280" height="720"><figcaption>The Unity twin following a waypoint path on simulated desert terrain, driven by the ROS 2 workspace. Click to play.</figcaption></figure><div class="card__links"><a href="https://github.com/bracu-mongoltori/simple_robot_ws">Repository</a></div></article><article class="card" id="proj-r7" data-reveal><div class="card__head"><h3>3-D LiDAR topographical path planner</h3></div><p class="card__meta">Aug 2025</p><ul class="stack" aria-label="Stack"><li>LiDAR point clouds</li><li>Artificial potential fields</li><li>Python</li></ul><p>Artificial-potential-field planner over raw LiDAR point clouds that estimates terrain slope and isolates high-risk zones for safe waypoint traversal on rough ground.</p></article><article class="card" id="proj-r9" data-reveal><div class="card__head"><h3>DhakaSense capture and annotation stack</h3></div><p class="card__meta">Jul – Sep 2026</p><ul class="stack" aria-label="Stack"><li>ZED SVO2</li><li>RealSense</li><li>SBG Ellipse-D INS</li><li>RTKLIB PPK</li><li>CVAT</li><li>NFS</li></ul><p>In-vehicle recording stack with supervisor and watchdog, PPK-corrected INS trajectories, a remote export pipeline that hashes hundreds of GB where they live, and a semi-automatic 3-D labelling pipeline lifting foundation-model segmentation into the LiDAR cloud. Private repository.</p></article></div></div></section><section id="experience" class="section"><div class="grid"><div class="key"><h2>Experience and honours</h2></div><div class="entries"><ul class="ledger "><li><h3>Education</h3></li><li><span>BSc Computer Science, BRAC University, Dhaka</span><span class="when">Sep 2022 – Jan 2027 (expected)</span></li><li><span>Higher Secondary Certificate, Science, National College of Education, Narsingdi</span><span class="when">2019 – 2021</span></li><li><span>Undergraduate thesis: TSDLoRA: Prioritizing Task-Specific Layers for Efficient Low-Rank Adaptation in Encoder-Only Transformers</span><span class="when">2026</span></li></ul><ul class="ledger "><li><h3>BRACU Mongol-Tori (University Mars Rover Team)</h3></li><li><span>Co-Advisor</span><span class="when">Nov 2025 – present</span></li><li><span>Autonomous Sub-Team Lead</span><span class="when">Sep 2024 – Aug 2025</span></li><li><span>Control Systems Engineer</span><span class="when">Feb – Aug 2024</span></li><li><span>Contributor</span><span class="when">Nov 2023 – Feb 2024</span></li></ul><ul class="ledger "><li><h3>Elsewhere</h3></li><li><span>Kibo Robot Programming Challenge, 6th edition (JAXA): 6th place, national round</span><span class="when">Aug 2025 – Feb 2026</span></li><li><span>First Global Challenge Team Bangladesh: Technical Mentor</span><span class="when">Sep 2024 – Feb 2025</span></li><li><span>ROBO hobby: AI Engineer, edge computing for agriculture</span><span class="when">Oct 2024 – Jan 2025</span></li><li><span>Robotics Club of BRAC University: Student Instructor, ROS, Gazebo and Webots</span><span class="when">Oct – Nov 2025</span></li></ul><ul class="ledger "><li><h3>Honours</h3></li><li><span>8th place, University Rover Challenge 2025 (The Mars Society, Utah)</span></li><li><span>21st place, University Rover Challenge 2024</span></li><li><span>VC&#x27;s List ×4 and Dean&#x27;s List ×3, BRAC University</span></li></ul></div></div></section><section id="cv" class="section"><div class="grid"><div class="key"><h2>CV</h2></div><div class="entries"><ul class="ledger ledger--cv"><li><a href="cv/academic.pdf">Academic CV</a><span class="when">PDF, for PhD applications</span></li></ul><p class="note">The CV and this page say the same things; the CV has the detail.</p></div></div></section>
+</main>
+<script type="importmap">{"imports":{"three":"./vendor/three/three.module.min.js","three/addons/":"./vendor/three/addons/"}}</script>
+<script type="module">
+const fig = document.querySelector("[data-plate]");
+if (fig && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver((es) => {
+    if (!es.some((x) => x.isIntersecting)) return;
+    io.disconnect();
+    import("./js/rover-scene.js").then((m) => { window.__plate = m.default(fig.querySelector("canvas"), { glb: "media/rover.glb", joints: "js/rover-joints.json", poster: "media/rover-poster.jpg" }); }).catch((err) => console.warn("3-D plate not started:", err));
+  }, { rootMargin: "200px" });
+  io.observe(fig);
+}
+</script>
+<footer class="foot page">
+  <div class="foot__rule"></div>
+  <div class="foot__row">
+    <span>Hironmoy Roy Rudra, Dhaka · Updated October 2026</span>
+    <nav aria-label="Contact"><a href="cv/academic.pdf">CV (PDF)</a><a href="mailto:hironmoy5458@gmail.com">Email</a><a href="https://github.com/Rudra-roy">GitHub</a><a href="https://linkedin.com/in/hironmoy-roy-rudra">LinkedIn</a></nav>
+  </div>
+</footer>
 </body>
-
 </html>
